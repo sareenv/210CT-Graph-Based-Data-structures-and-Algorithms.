@@ -1,9 +1,3 @@
-#include<iostream>
-#include<string>
-#include<fstream>
-
-using namespace std;
-
 /*
    Reading the file in cpp
    ----------------------- 
@@ -34,6 +28,13 @@ using namespace std;
         4. seekp - 
        
 */
+
+
+#include<iostream>
+#include<string>
+#include<fstream>
+
+using namespace std;
 
 void reader(){
     fstream file;

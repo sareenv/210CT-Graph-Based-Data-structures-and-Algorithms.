@@ -20,7 +20,14 @@ public:
 	nodeptr c;
 
 	nodeptr insert(nodeptr root, int data){
-		nodeptr newnode = new Node();
+		// creating on stack 
+        Node n;
+         // reference to that node. 
+        // Node* newnode = &n;
+       // creating on heap
+     
+        newnode = new Node();
+        
 		// properties.
 		newnode->data = data;
 		newnode->left = nullptr;
@@ -31,7 +38,7 @@ public:
 			cout<<"Root node is added "<<endl;
 			root = newnode;
 		}
-
+            
 		else if(data == root->data){
 			root->frequancy = root->frequancy + 1;
 			cout<<"The frequancy is changed of parent fre is "<<root->frequancy<<endl;
@@ -60,6 +67,20 @@ public:
 
 		return root;
 	}
+    
+    // printing pre order done. 
+    void preorderPrinting(nodeptr root){
+        if root == nullptr return;
+        cout<<root->data<<endl;
+        preorderPrinting(root->left);
+        preorderPrinting(root->right);
+        return;
+    }
+    
+    
+    
+    
+    
 };
 
 int main(){
