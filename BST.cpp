@@ -20,12 +20,7 @@ public:
     nodeptr c;
 
     nodeptr insert(nodeptr root, int data){
-        // creating on stack 
-        Node n;
-         // reference to that node. 
-        // Node* newnode = &n;
-       // creating on heap
-     
+        
         Node* newnode = new Node();
         
         // properties.
@@ -76,6 +71,34 @@ public:
         preorderPrinting(root->right);
         return;
     }
+    
+    
+    // finding the element in bst and returning bool 
+    /*
+     1. Check if the root node is eqaul to target. cout and return the function. 
+     2. IF target > root->data THEN Recursion(root->left, data)
+     3. Else Recursion(root->right, daat)
+     */
+    
+    void serach(nodeptr root, int target){
+            
+            if(root->data == target){
+                cout<<"Found the value here "<<endl;
+                return;
+            }
+            else if(target > ){
+                
+                return;
+            }else{
+                
+                
+            }
+        
+    }
+    
+    // Deleting the node here.     
+    
+    
     
 };
 

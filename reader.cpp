@@ -22,13 +22,11 @@
        
        
        position related stuff .... Not sure. 
-        1. tellg -  
-        2. tellp - 
-        3. seekg - 
-        4. seekp - 
+        1. tellg - tell the location of the pointer to read the stuff  
+        2. seekg - get the location of the poiner where is it at the moment. 
+        
        
 */
-
 
 #include<iostream>
 #include<string>
