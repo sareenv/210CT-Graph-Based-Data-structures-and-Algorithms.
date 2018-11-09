@@ -1,5 +1,18 @@
+#ifndef MY_Header
+#define MY_Header
+#include<cxxtest/TestSuite.h>
+#include<iostream>
+#include<string>
 
-#include <cxxtest/TestSuite.h>
+
+
+
+class BinarySearchTree{
+
+
+
+}
+
 
 class MyTestSuite1: public CxxTest::TestSuite{
     public:
@@ -9,3 +22,5 @@ class MyTestSuite1: public CxxTest::TestSuite{
         TS_ASSERT_EQUALS(1 + 1, 2);
     }
 };
+
+#endif

@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 
+
 using namespace std;
 
 struct Node{
@@ -15,11 +16,8 @@ typedef struct Node* nodeptr;
 class BST{
 
 public:
-
-    // current pointer.
-    nodeptr c;
-
-    nodeptr insert(nodeptr root, int data){
+ 
+   nodeptr insert(nodeptr root, int data){
         
         Node* newnode = new Node();
         
@@ -63,7 +61,23 @@ public:
         return root;
     }
     
-    // printing pre order done. 
+    /*
+        Printing the element in the pre order...
+            1. Print the root node then print the left node to it and so .. on
+            till the time it doesnot reach the leaf node. 
+
+            2. Then printing the right side if the node of upper layer of node using 
+            the recursive calls and and again repeat the step of the resursion. 
+
+        Important point is Creat the base case for the function. 
+            - when the node is the null pointer,
+        - Make recursive calls to make the printing of the left sub elements of the list till the time it hit the base case.
+        - Make recursive calls to make the printing of the left sub elements of the list.
+
+
+    */
+
+
     void preorderPrinting(nodeptr root){
         if (root == nullptr) return;
         cout<<root->data<<endl;
@@ -82,18 +96,18 @@ public:
     
     void serach(nodeptr root, int target){
             
-            if(root->data == target){
-                cout<<"Found the value here "<<endl;
-                return;
-            }
-            else if(target > ){
-                
-                return;
-            }else{
-                
-                
-            }
-        
+        if(root->data == target){
+            cout<<"Found the value here "<<endl;
+            return;
+        }
+        else if(target > root->data && root->right != nullptr){
+            serach(root->right, target);
+        }else if (target < root->data && root->left != nullptr){
+            serach(root->left, target);
+        }else{
+            cout<<"Element not found"<<endl;
+        }
+
     }
     
     // Deleting the node here.     
@@ -119,5 +133,12 @@ int main(){
     cout<<"\n"<<"Printing in pre order "<<endl;
     // testing the printing of the elements.
     b1.preorderPrinting(result);
+
+    // Searching the elements in the binary search tree using recursion. 
+    cout<<"\n"<<"Searching the element  "<<endl;
+    b1.serach(result, 7);
+
+
+
     return 0;
 }
