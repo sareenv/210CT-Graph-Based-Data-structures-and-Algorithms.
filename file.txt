@@ -1,7 +1,7 @@
-"Hacking",
-"Reading",
-"Playing",
-"Play",
-"Learn",
-"Study",
-"Study"
+Hacking
+Reading
+Playing
+Play
+Learn
+Study
+Study

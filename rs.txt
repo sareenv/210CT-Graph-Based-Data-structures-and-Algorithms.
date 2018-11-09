@@ -1,0 +1,87 @@
+    
+    /*
+        Printing the element in the pre order...
+            1. Print the root node then print the left node to it and so .. on
+            till the time it doesnot reach the leaf node. 
+
+            2. Then printing the right side if the node of upper layer of node using 
+            the recursive calls and and again repeat the step of the resursion. 
+
+        Important point is Creat the base case for the function. 
+            - when the node is the null pointer,
+        - Make recursive calls to make the printing of the left sub elements of the list till the time it hit the base case.
+        - Make recursive calls to make the printing of the left sub elements of the list.
+
+
+    */
+
+
+
+
+
+/*
+   Reading the file in cpp
+   ----------------------- 
+    Resource to learn the file handling in c++ - http://www.cplusplus.com/doc/tutorial/fil    
+    ofstream - stream class to write on the files.
+    ifstream - stream class to read on the files. 
+    fstream - stream class for both read/write on the files. 
+    
+    1. file.open will open the file. 
+    2. file.close will close the file - v imp rember.
+    
+   open function has 2 parameter 1 is filename, 2 is mode so, the second parameter is optional. 
+       some of the modes are 
+           1. ios::in -> for input operation. 
+           2. ios:: out -> for output operation. 
+           3. ios:: ate -> set the initial position at the end of the file. not default but like begining of the file. 
+       Here - ios::in 
+       
+       bad - returns true if the reading or the writing operation fails. 
+       fail - happens in case of bad and also happens when trying to read the int but the content is something else - usefull. 
+           
+       position related stuff .... Not sure. 
+        1. tellg - tell the location of the pointer to read the stuff  
+        2. seekg - get the location of the poiner where is it at the moment. 
+      
+      >> is the stream extraction operator which returns when reaches the eol(end of the line).
+      for strings it stops at the white spaces , special char - need to test this out.       
+      
+
+      VImportant -> :: is scope resolution operator here.
+
+*/
+
+
+
+int main(){
+    BinarySearchTree b1;
+    nodeptr root = nullptr;
+    auto result = b1.insert(root, 4);
+    b1.insert(result, 10);
+    cout<<"Value 10 inserted"<<endl;
+    b1.insert(result, 16);
+    cout<<"Value 16 inserted"<<endl;
+    b1.insert(result, 20);
+    cout<<"Value 20 inserted"<<endl;
+    b1.insert(result, 3);
+    cout<<"Value 3 is inserted "<<endl;
+    b1.insert(result, 7);
+    cout<<"Value 7 inserted"<<endl;
+    cout<<"\n"<<"Printing in pre order "<<endl;
+    // testing the printing of the elements.
+    b1.preorderPrinting(result);
+
+    // Searching the elements in the binary search tree using recursion. 
+    cout<<"\n"<<"Searching the element  "<<endl;
+    b1.searchNode(result, 7);
+
+    return 0;
+}
+
+
+
+
+
+
+

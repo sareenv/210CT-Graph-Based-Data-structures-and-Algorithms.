@@ -1,10 +1,8 @@
 #ifndef MY_Header
 #define MY_Header
 #include<cxxtest/TestSuite.h>
-#include"combine.hpp"
 
-
-class MyTestSuite1: public CxxTest::TestSuite{
+class FileTestingSuite: public CxxTest::TestSuite{
     public:
     	// Testing the opening of the file.
     void testOpening(void)
@@ -21,7 +19,13 @@ class MyTestSuite1: public CxxTest::TestSuite{
       bool result5 = f1.openingFile("file.text");
       TS_ASSERT_EQUALS(result5, true);
     }
-
 };
+
+
+
+class BinarySearchTreeTestingSuite: public CxxTest::TestSuite{
+  void testFindingNode(void){}
+};
+
 
 #endif
