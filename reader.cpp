@@ -42,7 +42,7 @@ bool File:: openingFile(string name){
     cout<<"File is sucessfully opened now we can perform the actions "<<endl;
     return true;
   }
-  cout<<"Counldn't open the file "<<endl;
+  cout<<"Couldn't open the file "<<endl;
   return false;
 }
 

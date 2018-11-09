@@ -20,18 +20,18 @@ int main( int argc, char *argv[] ) {
     return status;
 }
 bool suite_MyTestSuite1_init = false;
-#include "/home/codio/workspace/testing/test.h"
+#include "test.h"
 
 static MyTestSuite1 suite_MyTestSuite1;
 
 static CxxTest::List Tests_MyTestSuite1 = { 0, 0 };
-CxxTest::StaticSuiteDescription suiteDescription_MyTestSuite1( "test.h", 3, "MyTestSuite1", suite_MyTestSuite1, Tests_MyTestSuite1 );
+CxxTest::StaticSuiteDescription suiteDescription_MyTestSuite1( "test.h", 11, "MyTestSuite1", suite_MyTestSuite1, Tests_MyTestSuite1 );
 
-static class TestDescription_suite_MyTestSuite1_testAddition : public CxxTest::RealTestDescription {
+static class TestDescription_suite_MyTestSuite1_testOpening : public CxxTest::RealTestDescription {
 public:
- TestDescription_suite_MyTestSuite1_testAddition() : CxxTest::RealTestDescription( Tests_MyTestSuite1, suiteDescription_MyTestSuite1, 5, "testAddition" ) {}
- void runTest() { suite_MyTestSuite1.testAddition(); }
-} testDescription_suite_MyTestSuite1_testAddition;
+ TestDescription_suite_MyTestSuite1_testOpening() : CxxTest::RealTestDescription( Tests_MyTestSuite1, suiteDescription_MyTestSuite1, 13, "testOpening" ) {}
+ void runTest() { suite_MyTestSuite1.testOpening(); }
+} testDescription_suite_MyTestSuite1_testOpening;
 
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";
