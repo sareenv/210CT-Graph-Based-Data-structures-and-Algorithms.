@@ -1,12 +1,8 @@
 #ifndef MY_Header
 #define MY_Header
 #include<cxxtest/TestSuite.h>
-#include<string>
+#include"combine.hpp"
 
-class File{
-public:
-	bool openingFile(std::string fileName);
-};
 
 class MyTestSuite1: public CxxTest::TestSuite{
     public:
@@ -25,6 +21,7 @@ class MyTestSuite1: public CxxTest::TestSuite{
       bool result5 = f1.openingFile("file.text");
       TS_ASSERT_EQUALS(result5, true);
     }
+
 };
 
 #endif

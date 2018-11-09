@@ -1,7 +1,7 @@
 /*
    Reading the file in cpp
    ----------------------- 
-    Resource to learn the file handling in c++ - http://www.cplusplus.com/doc/tutorial/files/    
+    Resource to learn the file handling in c++ - http://www.cplusplus.com/doc/tutorial/fil    
     ofstream - stream class to write on the files.
     ifstream - stream class to read on the files. 
     fstream - stream class for both read/write on the files. 
@@ -25,14 +25,17 @@
       
       >> is the stream extraction operator which returns when reaches the eol(end of the line).
       for strings it stops at the white spaces , special char - need to test this out.       
+      
+
+      VImportant -> :: is scope resolution operator here.
+
 */
 
-#include<iostream>
-#include<string>
-#include<fstream>
 #include "test.h"
+#include "reader.hpp"
+
 using namespace std;
-// :: is scope resolution operator here.
+
 bool File:: openingFile(string name){
   string fileName = name + ".txt";
   fstream file;  
@@ -42,7 +45,22 @@ bool File:: openingFile(string name){
     cout<<"File is sucessfully opened now we can perform the actions "<<endl;
     return true;
   }
-  cout<<"Couldn't open the file "<<endl;
+  cout<<"Counldn't open the file "<<endl;
   return false;
 }
+
+void File::readingFile(){
+  fstream file;
+  file.open('file')
+  return;
+}
+
+int main(){
+  return 0;
+}
+
+
+
+
+
 
