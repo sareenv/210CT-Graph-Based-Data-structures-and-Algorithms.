@@ -1,25 +1,21 @@
 #ifndef MY_Header
 #define MY_Header
 #include<cxxtest/TestSuite.h>
-#include<iostream>
-#include<string>
 
 
 
-
-class BinarySearchTree{
-
-
-
-}
-
+class File{
+public:
+	std::bool openingFile(st::string fileName);
+};
 
 class MyTestSuite1: public CxxTest::TestSuite{
     public:
-    void testAddition(void)
+    void openingFileTest(void)
     {
-        TS_ASSERT(1 + 1 > 1);
-        TS_ASSERT_EQUALS(1 + 1, 2);
+      File f1;
+      std::bool result = f1.openingFile('hello')
+      TS_ASSERT_EQUALS(result, false)
     }
 };
 

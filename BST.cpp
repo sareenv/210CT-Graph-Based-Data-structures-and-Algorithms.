@@ -110,7 +110,13 @@ public:
 
     }
     
-    // Deleting the node here.     
+    /*
+        Deleting the element from the 
+            - First find the position of the node.
+            - Check if the node is the leaf node - if yes - hahah no problem.
+            - If no then check if there is one child. - different procedure. 
+            - If there are two sub trees or node then bit more complex. 
+    */   
     
     
     

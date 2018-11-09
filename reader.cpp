@@ -1,8 +1,7 @@
 /*
    Reading the file in cpp
    ----------------------- 
-    Resource to learn the file handling in c++ - http://www.cplusplus.com/doc/tutorial/files/
-    
+    Resource to learn the file handling in c++ - http://www.cplusplus.com/doc/tutorial/files/    
     ofstream - stream class to write on the files.
     ifstream - stream class to read on the files. 
     fstream - stream class for both read/write on the files. 
@@ -19,38 +18,31 @@
        
        bad - returns true if the reading or the writing operation fails. 
        fail - happens in case of bad and also happens when trying to read the int but the content is something else - usefull. 
-       
-       
+           
        position related stuff .... Not sure. 
         1. tellg - tell the location of the pointer to read the stuff  
         2. seekg - get the location of the poiner where is it at the moment. 
-        
-       
+      
+      >> is the stream extraction operator which returns when reaches the eol(end of the line).
+      for strings it stops at the white spaces , special char - need to test this out.       
 */
 
 #include<iostream>
 #include<string>
 #include<fstream>
-
+#include "test.h"
 using namespace std;
-
-void reader(){
-    fstream file;
-    file.open("file.txt", ios::in);
-
-    if(file.is_open()){
-       cout<<"file opened successfully, performing the operations "<<endl;           
-    }else{
-        cout<<"Sorry, error opening the file. "<<endl;
-    }
-    file.close();
-    return;
+// :: is scope resolution operator here.
+bool File:: openingFile(string name){
+  string fileName = name + ".txt";
+  fstream file;  
+  file.open(fileName);
+  if(file.is_open()){
+    cout<<"The file is opened sucessfully "<<endl;
+    cout<<"File is sucessfully opened now we can perform the actions "<<endl;
+    return true;
+  }
+  cout<<"Counldn't open the file "<<endl;
+  return false;
 }
 
-
-
-int main(){
-    
-    reader();
-    return 0;
-}
