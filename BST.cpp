@@ -1,9 +1,6 @@
 #include "combine.hpp"
 using namespace std;
 
-/*
-    Citation Goes Here.
-*/
 
 nodeptr BinarySearchTree::insert(nodeptr root, int data){
     nodeptr newnode = new Node();
@@ -28,7 +25,13 @@ nodeptr BinarySearchTree::insert(nodeptr root, int data){
     }
 
     else if(root != nullptr && data < root->data){
-        BinarySearchTree::insert(root->left, data);
+        if(root->left == nullptr){
+            root->left = newnode;
+        }
+
+        else{ 
+            BinarySearchTree::insert(root->left, data);
+        }
     }
 
     return root;
@@ -43,12 +46,16 @@ void BinarySearchTree::preorderPrinting(nodeptr root){
         preorderPrinting(root->right);
         return;
     }
+
+
+
     
 bool BinarySearchTree::searchNode(nodeptr root, int target){
-    bool found;
-    // Found the value 
+    bool foundNode;
+    
     if(root->data == target){
-        found =  true;
+        cout<<"found element "<< target<<endl;
+        foundNode =  true;
     }
     
     else if(target > root->data && root->right != nullptr){
@@ -60,11 +67,58 @@ bool BinarySearchTree::searchNode(nodeptr root, int target){
     }
 
     else{
-        found =  false;
+        cout<<"Not found "<<endl;
+        foundNode =  false;
     }
 
-    return found;
+    return foundNode;
 }
+
+
+void BinarySearchTree::deleteNode(nodeptr root, int nodedata){
+    // this means that we want to remove this node
+    if(root->data == nodedata){
+        if(root->left == nullptr && root->right == nullptr){
+            root = nullptr;
+            cout<<"Delete the node "<<endl;
+        }
+        else if(root->left == nullptr && root-> right != nullptr){
+            root = root->left;
+            cout<<"deleted the node "<<endl;
+        }
+        else if(root->left != nullptr && root->right != nullptr){
+            int smallest = root->data;
+            while(root->right != nullptr){
+                nodeptr current = root->right;
+                if(current->data < smallest){
+                    smallest = current->data;
+                }
+            }
+            root->data = smallest;
+        }
+    }
+    else if(nodedata > root->data && root->right != nullptr){
+        BinarySearchTree::deleteNode(root->right, nodedata);
+    }
+
+    else if(nodedata < root->data && root->right != nullptr){
+        BinarySearchTree::deleteNode(root->right, nodedata);
+    }
+
+    else{
+        cout<<"No such node found"<<endl;
+        return;
+    }
+
+    
+    
+}
+
+
+
+
+
+
     
 int main(){
     BinarySearchTree b1;
@@ -89,6 +143,14 @@ int main(){
     b1.searchNode(result, 7);
 
 
+    // Deleting the elment .....
+
+     cout<<"\n"<<"Deleting the element  "<<endl;
+
+     b1.deleteNode(result, 3);
+
+     cout<<"\n"<<"Printing again after deleting the element  "<<endl;
+     
 
     return 0;
 }

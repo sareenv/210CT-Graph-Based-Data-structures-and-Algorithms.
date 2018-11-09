@@ -29,7 +29,8 @@ public:
 	nodeptr insert(nodeptr root, int data);
 	void preorderPrinting(nodeptr root);
 	bool searchNode(nodeptr root, int target);
-	void deleteNode(nodeptr root, int node);
+	void deleteNode(nodeptr root, int nodedata);
+	
 };
 
 #endif

@@ -1,5 +1,4 @@
 #include "combine.hpp"
-using namespace std;
 
 bool FileHandling:: openingFile(string name){
   string fileName = name + ".txt";
