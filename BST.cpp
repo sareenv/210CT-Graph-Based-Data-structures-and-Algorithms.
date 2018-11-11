@@ -1,7 +1,7 @@
 #include "combine.hpp"
 using namespace std;
 
-nodeptr BinarySearchTree::insert(nodeptr root, int data){
+nodeptr BinarySearchTree::insert(nodeptr root, string data){
     nodeptr newnode = new Node();
     newnode->data = data;
     newnode->left = nullptr;
@@ -46,8 +46,8 @@ void BinarySearchTree::preorderPrinting(nodeptr root){
         return;
     }
     
-bool BinarySearchTree::searchNode(nodeptr root, int target){
-    bool foundNode;
+bool BinarySearchTree::searchNode(nodeptr root, string target){
+    bool foundNode = false;
     if(root->data == target){
         cout<<"found element "<< target<<endl;
         foundNode =  true;
@@ -66,7 +66,7 @@ bool BinarySearchTree::searchNode(nodeptr root, int target){
 }
 
 
-void BinarySearchTree::deleteNode(nodeptr root, int nodedata){
+void BinarySearchTree::deleteNode(nodeptr root, string nodedata){
     // this means that we want to remove this node
     if(root->data == nodedata){
         if(root->left == nullptr && root->right == nullptr){
@@ -78,7 +78,7 @@ void BinarySearchTree::deleteNode(nodeptr root, int nodedata){
             cout<<"deleted the node "<<endl;
         }
         else if(root->left != nullptr && root->right != nullptr){
-            int smallest = root->data;
+            auto smallest = root->data;
             while(root->right != nullptr){
                 nodeptr current = root->right;
                 if(current->data < smallest){
@@ -107,5 +107,7 @@ int main(){
     BinarySearchTree b1;
     bool openStatus = openingFile("file");
     readData(openStatus, b1);
+    
+
     return 0;
 }

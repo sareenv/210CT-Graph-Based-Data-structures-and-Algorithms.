@@ -21,13 +21,13 @@ typedef Node* nodeptr;
 class BinarySearchTree{
 public:
 	
-	nodeptr insert(nodeptr root, int data);
+	nodeptr insert(nodeptr root, string data);
 	void preorderPrinting(nodeptr root);
-	bool searchNode(nodeptr root, int target);
-	void deleteNode(nodeptr root, int nodedata);
+	bool searchNode(nodeptr root, string target);
+	void deleteNode(nodeptr root, string nodedata);
 	
 };
-openingFile(string name);
-readData(bool openStatus, BinarySearchTree b1);
+bool openingFile(string name);
+void readData(bool openStatus, BinarySearchTree b1);
 
 #endif
