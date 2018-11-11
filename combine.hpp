@@ -8,14 +8,9 @@
 
 using namespace std;
 
-class FileHandling{
-public:
-	bool openingFile(string fileName);
-	vector<string> readingFile(fstream file);
-};
 
 struct Node{
-	int data; // change this to the words.
+	string data; 
 	Node* left; 
 	Node* right;
 	int count; 
@@ -32,5 +27,7 @@ public:
 	void deleteNode(nodeptr root, int nodedata);
 	
 };
+openingFile(string name);
+readData(bool openStatus, BinarySearchTree b1);
 
 #endif

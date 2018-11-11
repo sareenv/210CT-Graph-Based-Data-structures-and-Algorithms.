@@ -1,6 +1,7 @@
 #include "combine.hpp"
-
-bool FileHandling:: openingFile(string name){
+#include<string>
+// checking if we can open the file
+bool openingFile(string name){
   string fileName = name + ".txt";
   fstream file;  
   file.open(fileName);
@@ -9,6 +10,24 @@ bool FileHandling:: openingFile(string name){
   }
   return false;
 }
+
+
+/* open the file and call the insertation function. */
+
+void readData(bool openStatus, BinarySearchTree b1){
+  if(openStatus == true){
+    while(file >> word){
+      b1.insert(word);
+    }
+    return;
+
+  }else{
+    cout<"Couldn't open the file so cannot perform the insertation operation to the file "<<endl;
+    return;
+  }
+}
+
+
 
 vector<string> FileHandling::readingFile(fstream file){
   string words;
