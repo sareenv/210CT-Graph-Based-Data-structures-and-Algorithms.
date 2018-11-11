@@ -1,5 +1,5 @@
 #include "combine.hpp"
-#include<string>
+
 // checking if we can open the file
 bool openingFile(string name){
   string fileName = name + ".txt";
@@ -35,15 +35,3 @@ void readData(bool openStatus, BinarySearchTree b1){
     return;
   }
 }
-
-
-
-// vector<string> FileHandling::readingFile(fstream file){
-//   string words;
-//   vector<string> wordsvector;
-//   file.open("file.txt");
-//   while(file >> words){
-//     wordsvector.push_back(words);
-//   }
-//   return wordsvector;
-// }

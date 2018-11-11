@@ -1,7 +1,8 @@
 Hacking
 Reading
-Playing
-Play
-Learn
-Study
-Study
+UnitTesting
+C#
+Swift
+Python
+C++Coding
+Programming

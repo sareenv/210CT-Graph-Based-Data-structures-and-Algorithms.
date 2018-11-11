@@ -107,7 +107,5 @@ int main(){
     BinarySearchTree b1;
     bool openStatus = openingFile("file");
     readData(openStatus, b1);
-    
-
     return 0;
 }
