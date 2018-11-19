@@ -4,3 +4,6 @@ all:
 
 graph:
 	g++ --std=c++14 graph.cpp -o g
+
+
+	

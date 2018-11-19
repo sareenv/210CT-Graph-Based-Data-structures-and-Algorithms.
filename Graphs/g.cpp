@@ -1,21 +1,13 @@
 #include "gc.hpp"
 
-
-void Graph::insertVertices(int data, vector<int> links){
+void Graph::insertVertices(int data, map<int, vector<int>> links){
 	nodeptr newnode = new Node();
 	newnode->data = data;
-	newnode->link = links;
+	newnode->adjlist = links;
 }
 
-void Graph::insertEdge(int starting, int ending){
-	edgeptr newedge = new Edge();
-	newedge->starting = starting;
-	newedge->ending = ending;
+void Graph::printingElements(int node){
+	cout<<"Printing the neighbour elements "<<endl;
+	return;
 }
 
-
-int main(){
-	Graph g1;
-	g1.insert(5);
-	return 0;
-}
