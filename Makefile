@@ -2,4 +2,5 @@
 all:
 	g++ --std=c++14 reader.cpp BST.cpp -o p 
 
-compile:
+graph:
+	g++ --std=c++14 graph.cpp -o g

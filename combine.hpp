@@ -5,9 +5,7 @@
 #include<fstream>
 #include<vector>
 #include<string>
-
 using namespace std;
-
 
 struct Node{
 	string data; 

@@ -2,6 +2,7 @@
 using namespace std;
 
 nodeptr BinarySearchTree::insert(nodeptr root, string data){
+
     nodeptr newnode = new Node();
     newnode->data = data;
     newnode->left = nullptr;
