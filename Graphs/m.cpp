@@ -13,8 +13,6 @@ void mapper(){
 	return;
 }
 
-
-
 int main(int argc, char const *argv[])
 {	
 	mapper();
