@@ -17,8 +17,9 @@ private:
 	int a = 0;
 	std::map<int, vector<int>> adjancylist;
 public:
-	void insertVertices(int data);
-	void printingElements(int source, int destination);
+	void insertVertices(int data, int id);
+	void addEdge(int id, int source, int destination);
+	void printingElements(int id);
 };
 
 #endif

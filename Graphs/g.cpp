@@ -11,12 +11,14 @@ void Graph::insertVertices(int data, int id){
 void Graph::addEdge(int id, int src, int des){
 	this->adjancylist.insert(pair<int, vector<int>>(id,{src, des}));
 	this->adjancylist.insert(pair<int, vector<int>>(id,{des, src}));
-
 }
 
-
-// printing stuff 
-// find the perticular item from it's key
-// auto result = this->adjancylist.find(src);
-// vector<int> adjanlist  = result->second;
-// for()
+// printing all the neighbour elements 
+void Graph::printingElements(int id){
+	auto elementMap = this->adjancylist.find(id);
+	vector<int> neighbour = elementMap->second;
+	for(int i = 0; i<neighbour.size(); i++){
+		cout<<neighbour[i]<<endl;
+	}
+	return;
+}
