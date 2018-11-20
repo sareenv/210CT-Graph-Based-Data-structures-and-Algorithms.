@@ -20,6 +20,7 @@ public:
 	void insertVertices(int data, int id);
 	void addEdge(int id, int source, int destination);
 	void printingElements(int id);
+	bool isConnected();
 };
 
 #endif
