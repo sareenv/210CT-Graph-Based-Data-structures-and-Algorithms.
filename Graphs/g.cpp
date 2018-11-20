@@ -1,13 +1,16 @@
 #include "gc.hpp"
 
-void Graph::insertVertices(int data, map<int, vector<int>> links){
+// Creating the new node with id :) in case of nodes with same data 
+void Graph::insertVertices(int data, int id){
 	nodeptr newnode = new Node();
 	newnode->data = data;
-	newnode->adjlist = links;
+	newnode->id = this->a;
+	this->id = this->a + 1;
 }
 
-void Graph::printingElements(int node){
-	cout<<"Printing the neighbour elements "<<endl;
-	return;
+// Creating the edge which is source to destination.
+void Graph::addEdge(int src, int des){
+	
 }
 
+// Printing all the elements

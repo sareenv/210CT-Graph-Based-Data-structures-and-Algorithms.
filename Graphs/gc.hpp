@@ -7,17 +7,18 @@ using namespace std;
 
 struct Node{
 	int data;
-	map<int, vector<int>> adjlist;
+	int id;
 };
 
 typedef Node* nodeptr;
 
 class Graph{
 private:
-	std::map<int, vector<int>> adjlist;
+	int a = 0;
+	std::map<int, vector<int>> adjancylist;
 public:
-	void insertVertices(int data, map<int, vector<int>> links);
-	void printingElements(int data);
+	void insertVertices(int data);
+	void printingElements(int source, int destination);
 };
 
 #endif
