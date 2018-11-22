@@ -66,18 +66,29 @@ void Graph::printingElements(int data){
 /*
 	isConnected - If the all the nodes have access to all other nodes in the graph 
 	then it's connected else not connected!
-	
 	Need to refine this - need something that can compare two vector based on content.
 */
+
+
+/*
+	Referance 
+	---------
+	Website: https://en.cppreference.com/w/cpp/algorithm/is_permutation
+	Topic: To compare is one vector's values are permutaion of others in c++.
+	Code Used for referance: Example in the page.
+
+*/
+
 
 bool Graph::isConnected(){
 	vector<int> nodesDataSet = this->nodesVector;
 	map<int, vector<int>> alist= this->adjancylist;
-
 	for(auto i = adjancylist.begin(); i!=adjancylist.end(); i++){
 		vector<int> list = i->second;
-		if(list != nodesDataSet){
-			cout<<"No, Not Connected "<<endl;
+		// this feature of stl was referanced from the website.
+		bool result = is_permutation(list.begin(), list.end(), nodesVector.begin());
+		if(result == false){
+			cout<<"Not connected "<<endl;
 			return false;
 		}
 	}

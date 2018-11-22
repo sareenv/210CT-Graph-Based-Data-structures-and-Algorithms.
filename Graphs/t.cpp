@@ -3,18 +3,12 @@
 
 using namespace std;
 
-template<typename T>
-bool isEqual(std::vector<T> const &v1, std::vector<T> const &v2)
-{
-    return (v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin()));
-}
-
-
 void cmp(){
-	vector<int> a = {1, 2, 3, 4};
-	vector<int> b = {4, 2, 3, 1};
-	bool r = isEqual(a, b);
-	cout<<r<<endl;
+	vector<int> v1 = {1, 2, 3, 4};
+	vector<int> v2 = {1, 3, 2, 4};
+	
+	bool a = is_permutation(v1.begin(), v1.end(), v2.begin());
+	(a == 1)?  cout<<"True"<<endl : cout<<"False"<<endl;
 }
 
 int main(){
