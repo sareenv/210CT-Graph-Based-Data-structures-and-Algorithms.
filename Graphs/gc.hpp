@@ -14,13 +14,15 @@ typedef Node* nodeptr;
 
 class Graph{
 private:
-	int a = 0;
+	vector<int> nodesVector;
 	std::map<int, vector<int>> adjancylist;
 public:
-	void insertVertices(int data, int id);
-	void addEdge(int id, int source, int destination);
-	void printingElements(int id);
-	bool isConnected();
+	void insertVertices(int nodeData);
+	void addEdge(int source, vector<int> destination);
+	void printingElements(int nodeData);
+	bool isConnected(int nodeData);
+	bool nodeCheck(int nodeData);
+	void printNodesDataSet(int nodeData);
 };
 
 #endif
