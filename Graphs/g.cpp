@@ -1,5 +1,4 @@
 #include "gc.hpp"
-
 /*
 	Creating the new nodes and appending to the private attribute
 	of the class node Data Set.
@@ -27,7 +26,6 @@ bool Graph::nodeCheck(int nodeData){
 	return false;
 }
 
-
 /*
 	Checking if the nodes that we are connecting is available
 	if yes the map them in adjancecy list.
@@ -52,6 +50,10 @@ void Graph::addEdge(int srcNodeData, vector<int> dest){
 	return;
 }
 
+
+/*
+	Printing all the neighbour elements 
+*/
 void Graph::printingElements(int data){
 	auto elementMap = this->adjancylist.find(data);
 	vector<int> neighbour = elementMap->second;
@@ -60,3 +62,30 @@ void Graph::printingElements(int data){
 	}
 	return;
 }
+
+
+/*
+	isConnected - If the all the nodes have access to all other nodes in the graph 
+	then it's connected else not connected!
+	
+	Need to refine this - need something that can compare two vector based on content.
+*/
+
+bool Graph::isConnected(){
+	vector<int> nodesDataSet = this->nodesVector;
+	map<int, vector<int>> alist= this->adjancylist;
+
+	for(auto i = adjancylist.begin(); i!=adjancylist.end(); i++){
+		vector<int> list = i->second;
+		if(list != nodesDataSet){
+			cout<<"No, Not Connected "<<endl;
+			return false;
+		}
+	}
+	cout<<"Yes Connected "<<endl;
+	return true;
+}
+
+
+
+
