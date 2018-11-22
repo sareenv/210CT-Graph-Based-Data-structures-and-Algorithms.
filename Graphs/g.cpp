@@ -45,7 +45,7 @@ void Graph::addEdge(int srcNodeData, vector<int> dest){
 		cout<<"Inserted edge"<<endl;
 	}else{
 		cout<< "Please check all the nodes in adjancency list "<<endl;
-		cout<< "The nodes donot exist in the graph that are tried to link "<<endl;
+		cout<< "The verticies donot exist in the graph that are tried to link "<<endl;
 	}
 	return;
 }
@@ -62,7 +62,6 @@ void Graph::printingElements(int data){
 	}
 	return;
 }
-
 
 /*
 	isConnected - If the all the nodes have access to all other nodes in the graph 
