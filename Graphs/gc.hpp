@@ -18,7 +18,7 @@ private:
 	std::map<int, vector<int>> adjancylist;
 public:
 	void insertVertices(int nodeData);
-	void addEdge(int source, vector<int> destination);
+	void addEdge(int source, vector<int> dest);
 	void printingElements(int nodeData);
 	bool isConnected(int nodeData);
 	bool nodeCheck(int nodeData);
