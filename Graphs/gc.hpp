@@ -17,13 +17,16 @@ class Graph{
 private:
 	vector<int> nodesVector;
 	std::map<int, vector<int>> adjancylist;
+	vector<int> visitedNodes;
 public:
+	Graph();
 	void insertVertices(int nodeData);
 	void addEdge(int source, vector<int> dest);
-	void printingElements(int nodeData);
+	void printingGraph();
 	bool isConnected();
 	bool nodeCheck(int nodeData);
-	void printNodesDataSet(int nodeData);
+	vector<int> neighbourElements(int node);
+	void dfs(int src);
 };
 
 #endif
