@@ -1,4 +1,16 @@
 #include "gc.hpp"
+
+/*
+	Constructor method - 
+	1. set the node set to be empty
+	2. set the visited list to be also empty.
+*/
+
+Graph::Graph(){
+	this->nodesVector = {};
+	this->visitedNodes = {};
+}
+
 /*
 	Creating the new nodes and appending to the private attribute
 	of the class node Data Set.
@@ -52,15 +64,28 @@ void Graph::addEdge(int srcNodeData, vector<int> dest){
 
 
 /*
-	Printing all the neighbour elements 
+ 	Printing all graph with vertices and edges
 */
-void Graph::printingElements(int data){
-	auto elementMap = this->adjancylist.find(data);
-	vector<int> neighbour = elementMap->second;
-	for(int i = 0; i<neighbour.size(); i++){
-		cout<<neighbour[i]<<endl;
+void Graph::printingGraph(){
+	map<int, vector<int>>adjancylist = this->adjancylist;
+	for(auto i = adjancylist.begin(); i!= adjancylist.end(); i++){
+		cout<<"Vertices is "<<i->first<<endl;
+		vector<int> links = i->second;
+		for(int j = 0; j< links.size(); j++){
+			cout<<"Edge connected to "<<links[j]<<endl;
+		}
 	}
-	return;
+}
+
+
+/*
+	Return all the neighbours and return the vector 
+*/
+vector<int> Graph::neighbourElements(int data){
+	map<int, vector<int>> adjancylist = this->adjancylist;
+	auto neighbourPair = adjancylist.find(data);
+	vector<int> neighbourElements = neighbourPair->second;
+	return neighbourElements;
 }
 
 /*
@@ -93,5 +118,11 @@ bool Graph::isConnected(){
 }
 
 
-
-
+void Graph::dfs(int source){
+	vector<int> nodesDataSet = this->nodesVector;
+	map<int, vector<int>> adjancylist = this->adjancylist;
+	vector<int> visitedNodes = this->visitedNodes;
+	vector<int> sourceLinks = Graph::neighbourElements(source)
+	for()
+	return;
+}
