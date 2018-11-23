@@ -9,5 +9,6 @@ int main(){
 	g1.addEdge(4, {5, 6, 4});
 	g1.addEdge(6, {4, 5, 6});
 	g1.isConnected();
+	g1.printingGraph();
 	return 0;
 }

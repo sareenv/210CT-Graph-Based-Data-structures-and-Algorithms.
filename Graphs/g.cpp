@@ -118,11 +118,32 @@ bool Graph::isConnected(){
 }
 
 
+
+/*
+	Check visited node true or false
+*/
+
+bool Graph::checkVisited(int node){
+	vector<int> visitedNodes = this->visitedNodes;
+	for(int i = 0; i< visitedNodes.size(); i++){
+		if(node == visitedNodes[i]){
+			return true;
+		}
+	}
+	return false;
+}
+
+/*
+	Implementation of DFS.
+*/
+
 void Graph::dfs(int source){
 	vector<int> nodesDataSet = this->nodesVector;
 	map<int, vector<int>> adjancylist = this->adjancylist;
 	vector<int> visitedNodes = this->visitedNodes;
-	vector<int> sourceLinks = Graph::neighbourElements(source)
-	for()
+	vector<int> sourceLinks = Graph::neighbourElements(source);
+	for(int i = 0; i< sourceLinks.size(); i++){
+		if()
+	}
 	return;
 }
