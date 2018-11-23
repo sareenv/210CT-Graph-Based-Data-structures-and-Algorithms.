@@ -67,10 +67,6 @@ void Graph::printingElements(int data){
 	isConnected - If the all the nodes have access to all other nodes in the graph 
 	then it's connected else not connected!
 	Need to refine this - need something that can compare two vector based on content.
-*/
-
-
-/*
 	Referance 
 	---------
 	Website: https://en.cppreference.com/w/cpp/algorithm/is_permutation
