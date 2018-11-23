@@ -10,5 +10,6 @@ int main(){
 	g1.addEdge(6, {4, 5, 6});
 	g1.isConnected();
 	g1.printingGraph();
+    g1.dfs(5);
 	return 0;
 }

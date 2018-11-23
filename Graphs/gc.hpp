@@ -25,6 +25,7 @@ public:
 	void printingGraph();
 	bool isConnected();
 	bool nodeCheck(int nodeData);
+    bool checkVisited(int node);
 	vector<int> neighbourElements(int node);
 	void dfs(int src);
 };

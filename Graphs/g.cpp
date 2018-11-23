@@ -100,7 +100,6 @@ vector<int> Graph::neighbourElements(int data){
 
 */
 
-
 bool Graph::isConnected(){
 	vector<int> nodesDataSet = this->nodesVector;
 	map<int, vector<int>> alist= this->adjancylist;
@@ -116,8 +115,6 @@ bool Graph::isConnected(){
 	cout<<"Yes Connected "<<endl;
 	return true;
 }
-
-
 
 /*
 	Check visited node true or false
@@ -136,14 +133,19 @@ bool Graph::checkVisited(int node){
 /*
 	Implementation of DFS.
 */
-
 void Graph::dfs(int source){
 	vector<int> nodesDataSet = this->nodesVector;
 	map<int, vector<int>> adjancylist = this->adjancylist;
 	vector<int> visitedNodes = this->visitedNodes;
 	vector<int> sourceLinks = Graph::neighbourElements(source);
+    cout<<source<<endl;
 	for(int i = 0; i< sourceLinks.size(); i++){
-		if()
+		bool visited = Graph::checkVisited(sourceLinks[i]);
+        if(visited != true){
+            Graph::dfs(sourceLinks[i]);
+            visitedNodes.push_back(source);
+           
+        }
 	}
 	return;
 }
