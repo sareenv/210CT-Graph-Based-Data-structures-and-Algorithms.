@@ -133,6 +133,7 @@ bool Graph::checkVisited(int node){
 /*
 	Implementation of DFS. - Recursive Approach
 	Iterate throught the sequance of links for each vertices 
+	P - There is no base case here
 */
 void Graph::dfs(int source){
 	vector<int> neighbourElements = Graph::neighbourElements(source);
@@ -146,4 +147,5 @@ void Graph::dfs(int source){
 			Graph::dfs(neighbourElements[i]);
 		}
 	}
+	return;
 }
