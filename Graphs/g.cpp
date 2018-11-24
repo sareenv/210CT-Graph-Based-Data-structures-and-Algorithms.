@@ -131,21 +131,19 @@ bool Graph::checkVisited(int node){
 }
 
 /*
-	Implementation of DFS.
+	Implementation of DFS. - Recursive Approach
+	Iterate throught the sequance of links for each vertices 
 */
 void Graph::dfs(int source){
-	vector<int> nodesDataSet = this->nodesVector;
-	map<int, vector<int>> adjancylist = this->adjancylist;
-	vector<int> visitedNodes = this->visitedNodes;
-	vector<int> sourceLinks = Graph::neighbourElements(source);
-    cout<<source<<endl;
-	for(int i = 0; i< sourceLinks.size(); i++){
-		bool visited = Graph::checkVisited(sourceLinks[i]);
-        if(visited != true){
-            Graph::dfs(sourceLinks[i]);
-            visitedNodes.push_back(source);
-           
-        }
+	vector<int> neighbourElements = Graph::neighbourElements(source);
+	cout<<"Source node is given as "<<source<<endl;
+	for(int i = 0; i< neighbourElements.size(); i++){
+		if(checkVisited(neighbourElements[i])){
+			cout<<"This is already visited " << "node which is checked is "<<neighbourElements[i]<<endl;
+		}else{
+			cout<<"Not visited " << "node which is checked is "<< neighbourElements[i]<<endl;
+			this->visitedNodes.push_back(neighbourElements[i]);
+			Graph::dfs(neighbourElements[i]);
+		}
 	}
-	return;
 }
