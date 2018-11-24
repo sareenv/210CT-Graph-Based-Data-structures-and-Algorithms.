@@ -131,21 +131,43 @@ bool Graph::checkVisited(int node){
 }
 
 /*
-	Implementation of DFS. - Recursive Approach
-	Iterate throught the sequance of links for each vertices 
-	P - There is no base case here
+	Implementation of DFS. - Recursive Approach - Supports backtracking.
+	1. Iterate throught the sequance of links for each vertices 
+	2. Check if it's unvisited then make recursive call with it's unvisited links
+	3. if visited then return that.
+	4. Writting to the file.
 */
 void Graph::dfs(int source){
 	vector<int> neighbourElements = Graph::neighbourElements(source);
-	cout<<"Source node is given as "<<source<<endl;
 	for(int i = 0; i< neighbourElements.size(); i++){
 		if(checkVisited(neighbourElements[i])){
-			cout<<"This is already visited " << "node which is checked is "<<neighbourElements[i]<<endl;
+			return;
 		}else{
-			cout<<"Not visited " << "node which is checked is "<< neighbourElements[i]<<endl;
+			cout<<neighbourElements[i]<<endl;
 			this->visitedNodes.push_back(neighbourElements[i]);
 			Graph::dfs(neighbourElements[i]);
 		}
 	}
+}
+
+/*
+	Implementation of BFS.
+	1. for all the nodes in adjacency list print it's unvisited childer.
+	2. save it to the file.
+*/
+
+void Graph::bfs(){
+	this->visitedNodes = {};
+	vector<int> nodesDataSet = this->nodesVector;
+	map<int, vector<int>> adjacencylist = this->adjancylist;
+	for(int i = 0; i < nodesDataSet.size(); i++){
+		// Call all the neighbours which are unvisited. 
+	}
 	return;
 }
+
+
+
+
+
+

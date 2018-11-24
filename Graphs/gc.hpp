@@ -28,6 +28,7 @@ public:
     bool checkVisited(int node);
 	vector<int> neighbourElements(int node);
 	void dfs(int src);
+	void bfs();
 };
 
 #endif
