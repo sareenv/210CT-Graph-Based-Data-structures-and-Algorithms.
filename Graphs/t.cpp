@@ -1,27 +1,14 @@
 #include<iostream>
-#include<vector>
-#include<queue>
-
+#include<fstream>
 using namespace std;
 
-
-void q(){
-	queue<int> mq;
-	mq.push(12);
-	mq.push(13);
-	mq.push(14);
-	mq.push(15);
-
-	mq.pop();
-	cout<<mq.front()<<endl;
-	mq.pop();
-	cout<<mq.front()<<endl;
-	mq.pop();
-	cout<<mq.front()<<endl;
-}
-
-
 int main(){
-	q();
+	fstream file;
+	file.open("hello.txt");
+	for(int i = 0; i< 10; i++){
+		file << "How this is what you call style 😎"<<endl;
+	}
+	file.close();
+	cout<<"Done printing in the file "<<endl;
 	return 0;
 }

@@ -146,14 +146,17 @@ bool Graph::checkVisited(int node){
 */
 
 void Graph::dfs(int source){
+	fstream file;
+	file.open("dfs.txt");
 	vector<int> neighbourElements = Graph::neighbourElements(source);
 	this->visitedNodes.push_back(source);
+	
 	for(int i = 0; i< neighbourElements.size(); i++){
 		if(checkVisited(neighbourElements[i])){
 			// do nothing
 		}else{
 			cout<<neighbourElements[i]<<endl;
-			// this->visitedNodes.push_back(neighbourElements[i]);
+			file<<neighbourElements[i]<<endl;
 			Graph::dfs(neighbourElements[i]);
 		}
 	}
