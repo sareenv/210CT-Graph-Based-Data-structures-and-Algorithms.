@@ -97,7 +97,7 @@ vector<int> Graph::neighbourElements(int data){
 	Website: https://en.cppreference.com/w/cpp/algorithm/is_permutation
 	Topic: To compare is one vector's values are permutaion of others in c++.
 	Code Used for referance: Example in the page.
-
+	Needs to fix this as soon as possible. 
 */
 
 bool Graph::isConnected(){
@@ -136,36 +136,36 @@ bool Graph::checkVisited(int node){
 	2. Check if it's unvisited then make recursive call with it's unvisited links
 	3. if visited then return that.
 	4. Writting to the file.
+
+	Important Points
+	
+	 Base case for the recursion 
+			1. If the node is already visited then it should return 
+			2. Which will backtrack to the previous node in the graph.
+
 */
+
 void Graph::dfs(int source){
 	vector<int> neighbourElements = Graph::neighbourElements(source);
+	this->visitedNodes.push_back(source);
 	for(int i = 0; i< neighbourElements.size(); i++){
 		if(checkVisited(neighbourElements[i])){
-			return;
+			// do nothing
 		}else{
 			cout<<neighbourElements[i]<<endl;
-			this->visitedNodes.push_back(neighbourElements[i]);
+			// this->visitedNodes.push_back(neighbourElements[i]);
 			Graph::dfs(neighbourElements[i]);
 		}
 	}
 }
 
 /*
-	Implementation of BFS.
-	1. for all the nodes in adjacency list print it's unvisited childer.
-	2. save it to the file.
+	Implementation of BSF code ...</>
 */
 
-void Graph::bfs(){
-	this->visitedNodes = {};
-	vector<int> nodesDataSet = this->nodesVector;
-	map<int, vector<int>> adjacencylist = this->adjancylist;
-	for(int i = 0; i < nodesDataSet.size(); i++){
-		// Call all the neighbours which are unvisited. 
-	}
+void Graph::bfs(int source){
 	return;
 }
-
 
 
 

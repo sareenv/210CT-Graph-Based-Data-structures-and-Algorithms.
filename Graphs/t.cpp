@@ -1,16 +1,27 @@
 #include<iostream>
 #include<vector>
+#include<queue>
 
 using namespace std;
 
-void cmp(){
-	vector<int> v1 = {1, 2, 3, 4};
-	vector<int> v2 = {1, 3, 2, 4};
-	
-	bool a = is_permutation(v1.begin(), v1.end(), v2.begin());
-	(a == 1)?  cout<<"True"<<endl : cout<<"False"<<endl;
+
+void q(){
+	queue<int> mq;
+	mq.push(12);
+	mq.push(13);
+	mq.push(14);
+	mq.push(15);
+
+	mq.pop();
+	cout<<mq.front()<<endl;
+	mq.pop();
+	cout<<mq.front()<<endl;
+	mq.pop();
+	cout<<mq.front()<<endl;
 }
 
+
 int main(){
-	cmp();
+	q();
+	return 0;
 }
