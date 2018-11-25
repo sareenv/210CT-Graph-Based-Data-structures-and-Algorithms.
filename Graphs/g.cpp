@@ -156,21 +156,34 @@ void Graph::dfs(int source){
 			// do nothing
 		}else{
 			cout<<neighbourElements[i]<<endl;
+			// writing to the file very late.
 			file<<neighbourElements[i]<<endl;
 			Graph::dfs(neighbourElements[i]);
 		}
 	}
+	file.close();
 }
 
 /*
-	Implementation of BSF code ...</>
+	Implementation of BSF code 
+	Complexity - O(M+N) where m and n are the number vertices and edges.
 */
 
 void Graph::bfs(int source){
+	cout<<"Entered into bfs "<<endl;
+	this->visitedNodes = {};
+	vector<int>visitedNodes = this->visitedNodes;
+	cout<<visitedNodes.size()<<endl;
+	queue<int> myqueue;
+	myqueue.push(source);
+	visitedNodes.push_back(source);
 	return;
 }
 
+/*
+	Disktra's Algorithm - Shortest Path finding Algorithm.
 
+*/
 
 
 
