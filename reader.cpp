@@ -1,5 +1,5 @@
 #include "combine.hpp"
-
+#include "test.h"
 // checking if we can open the file
 bool openingFile(string name){
   string fileName = name + ".txt";
@@ -10,7 +10,6 @@ bool openingFile(string name){
   }
   return false;
 }
-
 
 /* open the file and call the insertation function. */
 

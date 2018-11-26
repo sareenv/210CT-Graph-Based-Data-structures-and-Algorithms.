@@ -7,7 +7,7 @@ class FileTestingSuite: public CxxTest::TestSuite{
     	// Testing the opening of the file.
     void testOpening(void)
     {
-      File f1;
+      
       bool result = f1.openingFile("hello");
       TS_ASSERT_EQUALS(result, true);
       bool result2 = f1.openingFile("file");
