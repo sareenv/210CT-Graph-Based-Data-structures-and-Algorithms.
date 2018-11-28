@@ -146,16 +146,18 @@ bool Graph::checkVisited(int node){
 */
 
 vector<int> Graph::dfs(int source){
+
 	vector<int> neighbourElements = Graph::neighbourElements(source);
 	vector<int>dfsPath;
 	this->visitedNodes.push_back(source);
+	dfsPath.push_back(source);
 	
 	for(int i = 0; i< neighbourElements.size(); i++){
 		if(checkVisited(neighbourElements[i])){
 			// do nothing
 		}else{
 			cout<< neighbourElements[i]<<endl;
-			dfsPath.push_back(neighbourElements[i]);
+			
 			Graph::dfs(neighbourElements[i]);
 		}
 	}
@@ -164,6 +166,7 @@ vector<int> Graph::dfs(int source){
 
 /*
 	Printing the graph DFS Treversal to text File. - DFS.txt
+	Some problem is going on ...
 */
 
 void Graph::pathDfsWrite(int source){
@@ -171,7 +174,7 @@ void Graph::pathDfsWrite(int source){
 	dfsPathFile.open("dfs.txt");
 	vector<int> dfsPath = Graph::dfs(source);
 	for(auto i = dfsPath.begin(); i!= dfsPath.end(); i++){	
-		dfsPathFile << *i;
+		dfsPathFile << *i <<endl;
 	}
 	dfsPathFile.close();
 	return;
@@ -179,19 +182,35 @@ void Graph::pathDfsWrite(int source){
 
 /*
 	Implementation of BSF code 
-	Complexity - O(M+N) where m and n are the number vertices and edges.
 */
 
 void Graph::bfs(int source){
-	cout<<"Entered into bfs "<<endl;
 	this->visitedNodes = {};
-	vector<int>visitedNodes = this->visitedNodes;
-	cout<<visitedNodes.size()<<endl;
-	queue<int> myqueue;
-	myqueue.push(source);
-	visitedNodes.push_back(source);
-	return;
+	queue<int> bsfQ;
+	bsfQ.push(source);
+	cout<<"Source "<<source<<endl;
+	this->visitedNodes.push_back(source);
+	while(!bsfQ.empty()){
+		int frontValue = bsfQ.front();
+		vector<int> neighbours = Graph::neighbourElements(frontValue);
+		for(auto i = neighbours.begin(); i!= neighbours.end(); i++){
+
+			if(Graph::checkVisited(*i) == false){
+				cout<<*i<<endl;
+				bsfQ.push(*i);
+				this->visitedNodes.push_back(*i);
+			}
+		}
+		bsfQ.pop();
+	}
 }
+
+
+
+
+
+
+
 
 /*
 	Disktra's Algorithm - Shortest Path finding Algorithm.

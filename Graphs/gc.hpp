@@ -20,7 +20,6 @@ class Graph{
 private:
 	vector<int> nodesVector;
 	std::map<int, vector<int>> adjancylist;
-	vector<int>dfsPath;
 	vector<int> visitedNodes;
 public:
 	Graph();
