@@ -145,23 +145,36 @@ bool Graph::checkVisited(int node){
 
 */
 
-void Graph::dfs(int source){
-	fstream file;
-	file.open("dfs.txt");
+vector<int> Graph::dfs(int source){
 	vector<int> neighbourElements = Graph::neighbourElements(source);
+	vector<int>dfsPath;
 	this->visitedNodes.push_back(source);
 	
 	for(int i = 0; i< neighbourElements.size(); i++){
 		if(checkVisited(neighbourElements[i])){
 			// do nothing
 		}else{
-			cout<<neighbourElements[i]<<endl;
-			// writing to the file very late.
-			file<<neighbourElements[i]<<endl;
+			cout<< neighbourElements[i]<<endl;
+			dfsPath.push_back(neighbourElements[i]);
 			Graph::dfs(neighbourElements[i]);
 		}
 	}
-	file.close();
+	return dfsPath;
+}
+
+/*
+	Printing the graph DFS Treversal to text File. - DFS.txt
+*/
+
+void Graph::pathDfsWrite(int source){
+	fstream dfsPathFile;
+	dfsPathFile.open("dfs.txt");
+	vector<int> dfsPath = Graph::dfs(source);
+	for(auto i = dfsPath.begin(); i!= dfsPath.end(); i++){	
+		dfsPathFile << *i;
+	}
+	dfsPathFile.close();
+	return;
 }
 
 /*

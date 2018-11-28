@@ -5,6 +5,7 @@
 #include<vector>
 #include<fstream>
 #include<queue>
+#include<string>
 #include<algorithm>
 using namespace std;
 
@@ -19,6 +20,7 @@ class Graph{
 private:
 	vector<int> nodesVector;
 	std::map<int, vector<int>> adjancylist;
+	vector<int>dfsPath;
 	vector<int> visitedNodes;
 public:
 	Graph();
@@ -29,8 +31,9 @@ public:
 	bool nodeCheck(int nodeData);
     bool checkVisited(int node);
 	vector<int> neighbourElements(int node);
-	void dfs(int src);
-	void bfs(int src);
+	vector<int> dfs(int src); 
+	void bfs(int src); 
+	void pathDfsWrite(int src);
 };
 
 #endif
