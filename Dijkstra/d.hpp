@@ -25,6 +25,7 @@ public:
 	void addVeritces(int data);
 	void addEdges(int source, int destination, int weight);
 	void shortestPath(int source);
+	bool CheckVisited();
 	
 };
 #endif
