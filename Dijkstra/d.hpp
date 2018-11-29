@@ -4,6 +4,7 @@
 #include<string>
 #include<map>                                                                                            
 #include<vector>
+#include<tuple>
 using namespace std;
 struct ShortestPath{
 	int starting;
@@ -13,16 +14,15 @@ struct ShortestPath{
 typedef ShortestPath* sPath;
 
 
-struct Node{
-	int data;
-};
-typedef Node* nodeptr;
-
 class WeightedDirectedGraph
 {
 private:
-	// map  source -> vector< map {desti, weight}>
-	map<int, vector<map<int, int>>> adjList;
+	/*
+		List 
+		source : [(destination, weight), (destination, weight)]
+		map<int, vector(tuple(int, int))>
+	*/
+	map<int, vector<tuple<int, int>>> adjList;
 	vector<int> vertices;
 public:
 	WeightedDirectedGraph();
