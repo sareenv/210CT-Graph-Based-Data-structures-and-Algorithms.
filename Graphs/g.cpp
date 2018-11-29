@@ -46,6 +46,7 @@ bool Graph::nodeCheck(int nodeData){
 void Graph::addEdge(int srcNodeData, vector<int> dest){
  	pair<int, vector<int>> listpair = make_pair(srcNodeData, dest);
 	bool valid;
+	// For every node in the destination vector check if there in graph
 	for(int i = 0; i< dest.size(); i++){
 			valid = nodeCheck(dest[i]);
 			if(valid == false){

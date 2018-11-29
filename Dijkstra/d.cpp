@@ -10,8 +10,6 @@ void WeightedDirectedGraph::addVeritces(int data){
 	return;
 }
 
-
-
 void WeightedDirectedGraph::addEdges(int source, int destination, int weight){
 	nodeptr newNode = new Node();
 	newNode->data = source;

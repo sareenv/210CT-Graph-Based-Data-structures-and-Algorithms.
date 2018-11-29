@@ -1,5 +1,9 @@
 #include "combine.hpp"
-using namespace std;
+
+/*
+    Reference :- Lecture Slides (Coventry University). 
+    
+*/
 
 nodeptr BinarySearchTree::insert(nodeptr root, string data){
 
@@ -115,12 +119,9 @@ void BinarySearchTree::deleteNode(nodeptr root, string nodedata){
  
 int main(){
     BinarySearchTree b1;
-    // bool openStatus = openingFile("file");
-
-    auto result = b1.insert(nullptr, "Hello");
+    auto result = b1.insert(nullptr, "hi");
     b1.insert(result, "Hi");
     b1.insert(result, "Hello");
-    b1.insert(result, "Hey");
-
+    b1.insert(result, "Hello");
     return 0;
 }

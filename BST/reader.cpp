@@ -1,10 +1,6 @@
 // #include "combine.hpp"
 // #include "test.h"
 
-
-
-// Now this is working just need to combine this
-
 bool openingFile(string name){
   string fileName = name + ".txt";
   fstream file;  
