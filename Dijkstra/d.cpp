@@ -11,7 +11,8 @@ void WeightedDirectedGraph::addVeritces(int data){
 	return;
 }
 
-// need to edit this block of code.
+// Adds the edge of the algorithms.
+
 void WeightedDirectedGraph::addEdges(int source, vector<tuple<int, int>> links){
 	int keyNode = source;
 	pair<int, vector<tuple<int, int>>> linksPair = make_pair(source, links);
@@ -48,12 +49,12 @@ int WeightedDirectedGraph::edgeWeight(int source, int destination){
 }
 
 
-// Returns the neighbours of the node
-int WeightedDirectedGraph::edgeWeight(int source, int destination){
+// Returns the neighbour nodes of source node.
 
 
 
-}
+
+
 
 // Here comes the algorithm - Disktr'a Algorithm. - Last
 void WeightedDirectedGraph::shortestPath(int source){
