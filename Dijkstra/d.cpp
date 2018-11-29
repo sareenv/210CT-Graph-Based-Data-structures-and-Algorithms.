@@ -10,7 +10,7 @@ void WeightedDirectedGraph::addVeritces(int data){
 	cout<<"Inserted the new vertices with value of " << data <<endl;
 	return;
 }
-
+// need to edit this block of code.
 void WeightedDirectedGraph::addEdges(int source, int destination, int weight){
 	int keyNode = source;
 	vector<tuple<int, int>> destinationNode;
@@ -53,13 +53,14 @@ void WeightedDirectedGraph::shortestPath(int source){
 	// Values connected to the source - adjList.
 	for(auto i = this->adjList.begin(); i!= this->adjList.end(); i++){
 		vector<tuple<int, int>> nodeTupleVector = i->second;
+		cout<<"The size of the node tuple vector is "<<nodeTupleVector.size()<<endl;
 		for(int j = 0; j< nodeTupleVector.size(); j++){
 			tuple<int, int> nodeTuple = nodeTupleVector[j];
 			cout<<"Source is "<< i->first <<" Destination is "<<get<0>(nodeTuple) << " and it's weight is " <<get<1>(nodeTuple) <<endl;
-
 		}
 	}
 
+	// Step3 Repate until the visited in not full || visited is not permutation of vertices nodes Set.
 	return;
 }
 int main(){
@@ -68,6 +69,7 @@ int main(){
 	w1.addVeritces(13);
 	w1.addVeritces(14);
 	w1.addEdges(12, 13, 88);
+	w1.addEdges(13, 14, 2);
 
 	w1.shortestPath(12);
 	return 0;

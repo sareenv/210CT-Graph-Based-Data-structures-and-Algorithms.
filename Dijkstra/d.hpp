@@ -7,7 +7,6 @@
 #include<tuple>
 using namespace std;
 
-
 class WeightedDirectedGraph
 {
 private:
@@ -25,7 +24,7 @@ public:
 	void addVeritces(int data);
 	void addEdges(int source, int destination, int weight);
 	void shortestPath(int source);
-	bool CheckVisited();
+	bool CheckVisited(int node);
 	
 };
 #endif
