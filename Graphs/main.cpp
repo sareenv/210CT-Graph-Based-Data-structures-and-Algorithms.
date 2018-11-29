@@ -17,9 +17,9 @@ int main(){
 	g1.addEdge(15, {6, 18});
 
 	
-	g1.printingGraph();
-    // g1.pathDfsWrite(13);
-   	g1.bfs(13);
-
+	// g1.printingGraph();
+    g1.pathDfsWrite(13);
+   	// g1.bfs(13);
+	// g1.dfs(13);
 	return 0;
 }

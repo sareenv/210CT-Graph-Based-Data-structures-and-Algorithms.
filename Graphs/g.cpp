@@ -90,30 +90,33 @@ vector<int> Graph::neighbourElements(int data){
 }
 
 /*
-	isConnected - If the all the nodes have access to all other nodes in the graph 
-	then it's connected else not connected!
+	isConnected - Very Similar to DFS. Same approach and if the visited nodes is permutation of 
+
 	Need to refine this - need something that can compare two vector based on content.
 	Referance 
 	---------
 	Website: https://en.cppreference.com/w/cpp/algorithm/is_permutation
 	Topic: To compare is one vector's values are permutaion of others in c++.
 	Code Used for referance: Example in the page.
-	Needs to fix this asap 
+	
 */
 
-bool Graph::isConnected(){
-	vector<int> nodesDataSet = this->nodesVector;
-	map<int, vector<int>> alist= this->adjancylist;
-	for(auto i = adjancylist.begin(); i!=adjancylist.end(); i++){
-		vector<int> list = i->second;
-		// this feature of stl was referanced from the website.
-		bool result = is_permutation(list.begin(), list.end(), nodesVector.begin());
-		if(result == false){
-			cout<<"Not connected "<<endl;
-			return false;
-		}
-	}
-	cout<<"Yes Connected "<<endl;
+bool Graph::isConnected(int source){
+	// vector<int> neighbourElements = Graph::neighbourElements(source);
+	// vector<int> visitedNodes;
+	// this->visitedNodes.push_back(source);
+
+	// for(int i = 0; i< neighbourElements.size(); i++){
+	// 	if(checkVisited(neighbourElements[i])){
+	// 		// do nothing
+	// 	}else{
+	// 		cout<< neighbourElements[i]<<endl;
+	// 		Graph::isConnected(neighbourElements[i]);
+	// 	}
+	// }
+
+	// // printing the visited nodes 
+
 	return true;
 }
 
@@ -128,6 +131,8 @@ bool Graph::checkVisited(int node){
 			return true;
 		}
 	}
+
+
 	return false;
 }
 
@@ -149,19 +154,19 @@ bool Graph::checkVisited(int node){
 vector<int> Graph::dfs(int source){
 
 	vector<int> neighbourElements = Graph::neighbourElements(source);
-	vector<int>dfsPath;
+	
 	this->visitedNodes.push_back(source);
-	dfsPath.push_back(source);
+
 	
 	for(int i = 0; i< neighbourElements.size(); i++){
 		if(checkVisited(neighbourElements[i])){
 			// do nothing
 		}else{
 			cout<< neighbourElements[i]<<endl;
-			
 			Graph::dfs(neighbourElements[i]);
 		}
 	}
+	vector<int>dfsPath = this->visitedNodes;
 	return dfsPath;
 }
 

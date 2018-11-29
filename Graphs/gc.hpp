@@ -26,7 +26,7 @@ public:
 	void insertVertices(int nodeData);
 	void addEdge(int source, vector<int> dest);
 	void printingGraph();
-	bool isConnected();
+	bool isConnected(int source);
 	bool nodeCheck(int nodeData);
     bool checkVisited(int node);
 	vector<int> neighbourElements(int node);
