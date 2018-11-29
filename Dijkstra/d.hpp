@@ -15,16 +15,18 @@ private:
 		source : [(destination, weight), (destination, weight)]
 		map<int, vector(tuple(int, int))>
 	*/
-	map<int, vector<tuple<int, int>>> adjList;
+	std::map<int, std::vector<tuple<int, int>>> adjList; 
 	vector<int> vertices;
 	map<int, int> shortestDistanceMap;
 	vector<int> visitedNode;
+
 public:
 	WeightedDirectedGraph();
 	void addVeritces(int data);
-	void addEdges(int source, int destination, int weight);
+	void addEdges(int source, vector<tuple<int, int>> links);
 	void shortestPath(int source);
 	bool CheckVisited(int node);
+	int edgeWeight(int src, int des);
 	
 };
 #endif

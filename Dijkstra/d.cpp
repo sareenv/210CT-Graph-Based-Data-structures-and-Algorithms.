@@ -10,16 +10,16 @@ void WeightedDirectedGraph::addVeritces(int data){
 	cout<<"Inserted the new vertices with value of " << data <<endl;
 	return;
 }
+
 // need to edit this block of code.
-void WeightedDirectedGraph::addEdges(int source, int destination, int weight){
+void WeightedDirectedGraph::addEdges(int source, vector<tuple<int, int>> links){
 	int keyNode = source;
-	vector<tuple<int, int>> destinationNode;
-	tuple<int, int> destinationTuple = make_tuple(destination, weight);
-	destinationNode.push_back(destinationTuple);
-	this->adjList.insert(pair<int, vector<tuple<int, int>>>(source, destinationNode));
-	cout<<"Edge connected from "<< source << " to " << destination << " with weight of "<< weight << endl;
+	pair<int, vector<tuple<int, int>>> linksPair = make_pair(source, links);
+	this->adjList.insert(linksPair);
+	cout<<"Inserted Edge with source "<< source <<endl;
 	return;
 }
+
 // Returns true if the element is visited else return false.
 bool WeightedDirectedGraph::CheckVisited(int source){
 	for(int i = 0; i< this->visitedNode.size(); i++){
@@ -30,7 +30,30 @@ bool WeightedDirectedGraph::CheckVisited(int source){
 	}
 	return false;
 }
+// returns the weigth of the edge - Used in the disjktra's algorithm
+int WeightedDirectedGraph::edgeWeight(int source, int destination){
+	for(auto i = this->adjList.begin(); i!= this->adjList.end(); i++){
+		if(i->first == source){
+			vector<tuple<int, int>> tupleVector = i->second;
+			for(int j = 0; j < tupleVector.size(); j++){
+				tuple<int, int> linksTuple  = tupleVector[j];
+				if(get<0>(linksTuple) == destination){
+					return get<1>(linksTuple);
+				}
+			}
+		}
+		return -1;
+	}
+	return 0;
+}
 
+
+// Returns the neighbours of the node
+int WeightedDirectedGraph::edgeWeight(int source, int destination){
+
+
+
+}
 
 // Here comes the algorithm - Disktr'a Algorithm. - Last
 void WeightedDirectedGraph::shortestPath(int source){
@@ -49,18 +72,10 @@ void WeightedDirectedGraph::shortestPath(int source){
 			this->shortestDistanceMap.insert(otherShortestPathPair);
 		}
 	}
-	// Step 2:- Now calculate the distance from the source to the other nodes.
-	// Values connected to the source - adjList.
-	for(auto i = this->adjList.begin(); i!= this->adjList.end(); i++){
-		vector<tuple<int, int>> nodeTupleVector = i->second;
-		cout<<"The size of the node tuple vector is "<<nodeTupleVector.size()<<endl;
-		for(int j = 0; j< nodeTupleVector.size(); j++){
-			tuple<int, int> nodeTuple = nodeTupleVector[j];
-			cout<<"Source is "<< i->first <<" Destination is "<<get<0>(nodeTuple) << " and it's weight is " <<get<1>(nodeTuple) <<endl;
-		}
-	}
 
-	// Step3 Repate until the visited in not full || visited is not permutation of vertices nodes Set.
+	// Step 2:- Now change the shortest path from the 
+
+	cout<<"Bye Bye"<<endl;
 	return;
 }
 int main(){
@@ -68,9 +83,11 @@ int main(){
 	w1.addVeritces(12);
 	w1.addVeritces(13);
 	w1.addVeritces(14);
-	w1.addEdges(12, 13, 88);
-	w1.addEdges(13, 14, 2);
-
+	w1.addEdges(12, {make_tuple(13, 2), make_tuple(14, 10)});
+	w1.addEdges(13, {make_tuple(13, 6), make_tuple(14, 10)});
+	w1.addEdges(14, {make_tuple(13, 7), make_tuple(14, 10)});
+	w1.addEdges(15, {make_tuple(13, 8), make_tuple(14, 10)});
 	w1.shortestPath(12);
+
 	return 0;
 }
