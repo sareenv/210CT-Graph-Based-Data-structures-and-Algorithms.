@@ -31,8 +31,9 @@ public:
     bool checkVisited(int node);
 	vector<int> neighbourElements(int node);
 	vector<int> dfs(int src); 
-	void bfs(int src); 
+	vector<int> bfs(int src); 
 	void pathDfsWrite(int src);
+	void pathBfsWrite(int src);
 };
 
 #endif

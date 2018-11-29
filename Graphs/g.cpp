@@ -113,6 +113,7 @@ bool Graph::isConnected(int source){
 	return true;
 }
 
+
 /*
 	Check visited node true or false
 */
@@ -124,8 +125,6 @@ bool Graph::checkVisited(int node){
 			return true;
 		}
 	}
-
-
 	return false;
 }
 
@@ -179,8 +178,9 @@ void Graph::pathDfsWrite(int source){
 	Implementation of BSF code 
 */
 
-void Graph::bfs(int source){
+vector<int> Graph::bfs(int source){
 	this->visitedNodes = {};
+	vector<int> bsfPath;
 	queue<int> bsfQ;
 	bsfQ.push(source);
 	cout<<"Source "<<source<<endl;
@@ -197,9 +197,20 @@ void Graph::bfs(int source){
 		}
 		bsfQ.pop();
 	}
+	bsfPath = this->visitedNodes;
+	return bsfPath;
 }
 
-
+void Graph::pathBfsWrite(int source){
+	fstream dfsPathFile;
+	dfsPathFile.open("bfs.txt");
+	vector<int> bsfPath = Graph::bfs(source);
+	for(auto i = bsfPath.begin(); i!= bsfPath.end(); i++){	
+		dfsPathFile << *i <<endl;
+	}
+	dfsPathFile.close();
+	return;
+}
 
 
 
