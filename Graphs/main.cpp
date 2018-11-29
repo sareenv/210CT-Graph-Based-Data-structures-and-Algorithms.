@@ -18,8 +18,9 @@ int main(){
 
 	
 	// g1.printingGraph();
-    g1.pathDfsWrite(13);
+    // g1.pathDfsWrite(13);
    	// g1.bfs(13);
 	// g1.dfs(13);
+	g1.isConnected(13);
 	return 0;
 }

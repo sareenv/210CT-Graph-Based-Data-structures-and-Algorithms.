@@ -102,21 +102,14 @@ vector<int> Graph::neighbourElements(int data){
 */
 
 bool Graph::isConnected(int source){
-	// vector<int> neighbourElements = Graph::neighbourElements(source);
-	// vector<int> visitedNodes;
-	// this->visitedNodes.push_back(source);
-
-	// for(int i = 0; i< neighbourElements.size(); i++){
-	// 	if(checkVisited(neighbourElements[i])){
-	// 		// do nothing
-	// 	}else{
-	// 		cout<< neighbourElements[i]<<endl;
-	// 		Graph::isConnected(neighbourElements[i]);
-	// 	}
-	// }
-
-	// // printing the visited nodes 
-
+	for(auto i = this->nodesVector.begin(); i!= this->nodesVector.end(); i++){
+		vector<int> dfsVisitedNodes = Graph::dfs(source);
+		if(is_permutation(dfsVisitedNodes.begin(), dfsVisitedNodes.end(), this->visitedNodes.begin())){
+			cout<<"YES, Strongly Connected "<<endl;
+			return true;
+		}
+	}
+	cout<< "Not, Strongly Connected "<<endl;
 	return true;
 }
 
@@ -152,12 +145,8 @@ bool Graph::checkVisited(int node){
 */
 
 vector<int> Graph::dfs(int source){
-
 	vector<int> neighbourElements = Graph::neighbourElements(source);
-	
 	this->visitedNodes.push_back(source);
-
-	
 	for(int i = 0; i< neighbourElements.size(); i++){
 		if(checkVisited(neighbourElements[i])){
 			// do nothing
