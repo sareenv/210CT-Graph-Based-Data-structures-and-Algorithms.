@@ -13,11 +13,13 @@ void WeightedDirectedGraph::addVeritces(int data){
 
 void WeightedDirectedGraph::addEdges(int source, int destination, int weight){
 	int keyNode = source;
-	vector<tuple(int, int)> destinationNode;
+	vector<tuple<int, int>> destinationNode;
+	tuple<int, int> destinationTuple = make_tuple(destination, weight);
+	this->adjList.insert(pair<int, vector<tuple<int, int>>>)
 
-	tuple<int, int> destinationTuple = make_tuple(destination, weight)
-	
 
+
+	cout<<"WIP"<<endl;
 	return;
 }
 

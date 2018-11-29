@@ -1,5 +1,7 @@
 #include "gc.hpp"
 
+// **** isPath ***** - Function
+
 /*
 	Constructor method - 
 	1. set the node set to be empty
@@ -103,6 +105,7 @@ vector<int> Graph::neighbourElements(int data){
 
 bool Graph::isConnected(int source){
 	for(auto i = this->nodesVector.begin(); i!= this->nodesVector.end(); i++){
+		source = *i;
 		vector<int> dfsVisitedNodes = Graph::dfs(source);
 		if(is_permutation(dfsVisitedNodes.begin(), dfsVisitedNodes.end(), this->visitedNodes.begin())){
 			cout<<"YES, Strongly Connected "<<endl;
@@ -128,6 +131,11 @@ bool Graph::checkVisited(int node){
 	return false;
 }
 
+void isPath(int src, int desti){
+	// Printing the path
+	return;
+}
+
 /*
 	Implementation of DFS. - Recursive Approach - Supports backtracking.
 	1. Iterate throught the sequance of links for each vertices 
@@ -140,6 +148,7 @@ bool Graph::checkVisited(int node){
 	 Base case for the recursion 
 			1. If the node is already visited then it should return 
 			2. Which will backtrack to the previous node in the graph.
+	
 
 */
 

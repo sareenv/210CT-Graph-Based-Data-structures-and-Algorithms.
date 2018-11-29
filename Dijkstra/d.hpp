@@ -13,7 +13,6 @@ struct ShortestPath{
 };
 typedef ShortestPath* sPath;
 
-
 class WeightedDirectedGraph
 {
 private:
