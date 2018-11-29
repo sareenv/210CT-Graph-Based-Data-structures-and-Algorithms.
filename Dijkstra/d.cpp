@@ -50,15 +50,26 @@ int WeightedDirectedGraph::edgeWeight(int source, int destination){
 
 
 // Returns the neighbour nodes of source node.
+vector<int> WeightedDirectedGraph::neighbourNodes(int source){
+	vector<int> neighbours = {}; 
 
-
-
-
-
+	for(auto i = this->adjList.begin(); i!= this->adjList.end(); i++){
+		if(i->first == source){
+			vector<tuple<int, int>> tupleVector = i->second;
+			for(int j = 0; j < tupleVector.size(); j++){
+				tuple<int, int> linksTuple  = tupleVector[j];
+				neighbours.push_back(get<0>(linksTuple));
+			}
+			return neighbours; 
+		}
+	}
+	return {};
+}
 
 // Here comes the algorithm - Disktr'a Algorithm. - Last
 void WeightedDirectedGraph::shortestPath(int source){
 	cout<<"Entered the Disktr'a Algorithm. "<<endl;
+	vector<int> unvisited = this->vertices;
 	// Step 1 :- Set the source as zero and others as INT_Max 
 	for(int i = 0; i< this->vertices.size(); i++){
 		if(this->vertices[i] == source){
@@ -72,11 +83,17 @@ void WeightedDirectedGraph::shortestPath(int source){
 			pair<int, int> otherShortestPathPair = make_pair(this->vertices[i], 0);
 			this->shortestDistanceMap.insert(otherShortestPathPair);
 		}
-	}
+	}	
+	vector<int> neighbours = neighbourNodes(source);
+	for(int i = 0; i<neighbours.size(); i++){
+		if(WeightedDirectedGraph::CheckVisited(neighbourNodes[i]) == true){
+			// do nothing 
+		}else{
+			cout<<"Doing stuff here "<<endl;
+		}
+	}	
 
-	// Step 2:- Now change the shortest path from the 
-
-	cout<<"Bye Bye"<<endl;
+	
 	return;
 }
 int main(){
@@ -88,7 +105,6 @@ int main(){
 	w1.addEdges(13, {make_tuple(13, 6), make_tuple(14, 10)});
 	w1.addEdges(14, {make_tuple(13, 7), make_tuple(14, 10)});
 	w1.addEdges(15, {make_tuple(13, 8), make_tuple(14, 10)});
-	w1.shortestPath(12);
-
+	w1.neighbourNodes(13);
 	return 0;
 }

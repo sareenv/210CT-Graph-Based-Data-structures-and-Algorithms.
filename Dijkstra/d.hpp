@@ -27,6 +27,6 @@ public:
 	void shortestPath(int source);
 	bool CheckVisited(int node);
 	int edgeWeight(int src, int des);
-	
+	vector<int> neighbourNodes(int src);
 };
 #endif
