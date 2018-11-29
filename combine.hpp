@@ -5,6 +5,7 @@
 #include<fstream>
 #include<vector>
 #include<string>
+#include "test.h"
 using namespace std;
 
 struct Node{

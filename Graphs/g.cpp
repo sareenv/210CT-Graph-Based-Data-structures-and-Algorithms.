@@ -97,7 +97,7 @@ vector<int> Graph::neighbourElements(int data){
 	Website: https://en.cppreference.com/w/cpp/algorithm/is_permutation
 	Topic: To compare is one vector's values are permutaion of others in c++.
 	Code Used for referance: Example in the page.
-	Needs to fix this as soon as possible. 
+	Needs to fix this asap 
 */
 
 bool Graph::isConnected(){
@@ -194,7 +194,6 @@ void Graph::bfs(int source){
 		int frontValue = bsfQ.front();
 		vector<int> neighbours = Graph::neighbourElements(frontValue);
 		for(auto i = neighbours.begin(); i!= neighbours.end(); i++){
-
 			if(Graph::checkVisited(*i) == false){
 				cout<<*i<<endl;
 				bsfQ.push(*i);
@@ -210,11 +209,6 @@ void Graph::bfs(int source){
 
 
 
-
-
-/*
-	Disktra's Algorithm - Shortest Path finding Algorithm.
-*/
 
 
 

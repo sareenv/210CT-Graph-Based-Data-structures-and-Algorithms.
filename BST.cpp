@@ -13,6 +13,7 @@ nodeptr BinarySearchTree::insert(nodeptr root, string data){
         root = newnode;
     }
     
+    // Right Side
     else if(root != nullptr && data > root->data){
 
         if(root->right == nullptr){
@@ -24,6 +25,7 @@ nodeptr BinarySearchTree::insert(nodeptr root, string data){
         }
     }
 
+    // Left Side.
     else if(root != nullptr && data < root->data){
         if(root->left == nullptr){
             root->left = newnode;
@@ -32,6 +34,13 @@ nodeptr BinarySearchTree::insert(nodeptr root, string data){
         else{ 
             BinarySearchTree::insert(root->left, data);
         }
+    }
+
+    // If it already exist
+    else{
+        cout<<"The Node already exist so, it's frequancy is now chaged as part of node strucutre"<<endl;
+        root->count = root->count + 1;
+        cout<<"The node was "<< root->data<< " and the frequancy is "<<root->count<<endl;
     }
 
     return root;
@@ -106,7 +115,12 @@ void BinarySearchTree::deleteNode(nodeptr root, string nodedata){
  
 int main(){
     BinarySearchTree b1;
-    bool openStatus = openingFile("file");
-    readData(openStatus, b1);
+    // bool openStatus = openingFile("file");
+
+    auto result = b1.insert(nullptr, "Hello");
+    b1.insert(result, "Hi");
+    b1.insert(result, "Hello");
+    b1.insert(result, "Hey");
+
     return 0;
 }
