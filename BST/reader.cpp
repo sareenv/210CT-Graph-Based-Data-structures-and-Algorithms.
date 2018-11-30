@@ -1,5 +1,8 @@
-// #include "combine.hpp"
-// #include "test.h"
+#include "combine.hpp"
+
+/*
+  Trying to open the file.
+*/
 
 bool openingFile(string name){
   string fileName = name + ".txt";
@@ -11,31 +14,21 @@ bool openingFile(string name){
   return false;
 }
 
-/* open the file and call the insertation function. */
-
 /*
-  This file needs the changes.
+  Reader - Read words from the paragraphs in c++ and return a vector<string>
+  based on that
 */
 
-
-void readData(bool openStatus, BinarySearchTree b1){
-  if(openStatus == true){
+vector<string> reader(bool fileStatus){
+  if(fileStatus == true){
+    vector<string> wordsDataSet;
     string word;
     fstream file;
     file.open("file.txt");
-    nodeptr result = b1.insert(nullptr, "hello");
     while(file >> word){
-      b1.insert(result, word);
+      wordsDataSet.push_back(word);
     }
-
-    cout<<"Done inserting the values now printing the values \n";
-    b1.preorderPrinting(result);
-
-
-    return;
-
-  }else{
-    cout<<"Couldn't open the file so cannot perform the insertation operation to the file ";
-    return;
+    return wordsDataSet;
   }
+  return {};
 }

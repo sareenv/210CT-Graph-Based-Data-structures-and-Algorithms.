@@ -5,8 +5,10 @@
 #include<fstream>
 #include<vector>
 #include<string>
-
 using namespace std;
+
+vector<string>readData(bool fileStatus);
+bool fileOpenCheck(string fileName);
 
 struct Node{
 	string data; 

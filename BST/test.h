@@ -7,7 +7,7 @@ class BinarySearchTreeTestingSuite: public CxxTest::TestSuite{
   // Test for check if the insertation was sucessfull by checking return type.
   public:
   void testInsertation(void){
-  	BinarySearchTree b1;
+  BinarySearchTree b1;
 	nodeptr result = b1.insert(nullptr, "Learning"); 
 	nodeptr result1 = b1.insert(result, "is"); 
 	nodeptr result2 = b1.insert(result, "a"); 
@@ -33,7 +33,7 @@ class BinarySearchTreeTestingSuite: public CxxTest::TestSuite{
   }
   // Testing for preorder
   void testPreorder(void){
-  	TS_SKIP("This test has been")
+  	TS_SKIP("This test has been");
   }
 };
 
