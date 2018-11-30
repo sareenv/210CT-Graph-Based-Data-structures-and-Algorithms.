@@ -3,17 +3,6 @@
 #include<cxxtest/TestSuite.h>
 #include "combine.hpp"
 
-// 
-// Testing all the files 
-// class FileTestingSuite: public CxxTest::TestSuite{
-//     public:
-//     	// Testing the opening of the file.
-//     void testOpening(void)
-//     {
-
-//     }
-// };
-
 class BinarySearchTreeTestingSuite: public CxxTest::TestSuite{
   // Test for check if the insertation was sucessfull by checking return type.
   public:
@@ -30,9 +19,22 @@ class BinarySearchTreeTestingSuite: public CxxTest::TestSuite{
   }
 
   // Testing for Node Search
-  void testSearching(void){}
-
-
+  void testSearching(void){
+  	BinarySearchTree b1;
+  	nodeptr result = b1.insert(nullptr, "Learning"); 
+  	b1.insert(result, "ComputerScience");
+  	b1.insert(result, "Algorithms");
+  	bool find1 = b1.searchNode(result, "Learning");
+  	bool find2 = b1.searchNode(result, "Tree");
+  	bool find3 = b1.searchNode(result, "Algorithms");
+	TS_ASSERT_EQUALS(find1, true);
+	TS_ASSERT_EQUALS(find2, false);
+	TS_ASSERT_EQUALS(find3, true);
+  }
+  // Testing for preorder
+  void testPreorder(void){
+  	TS_SKIP("This test has been")
+  }
 };
 
 

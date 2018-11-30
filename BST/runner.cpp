@@ -25,13 +25,19 @@ bool suite_BinarySearchTreeTestingSuite_init = false;
 static BinarySearchTreeTestingSuite suite_BinarySearchTreeTestingSuite;
 
 static CxxTest::List Tests_BinarySearchTreeTestingSuite = { 0, 0 };
-CxxTest::StaticSuiteDescription suiteDescription_BinarySearchTreeTestingSuite( "test.h", 33, "BinarySearchTreeTestingSuite", suite_BinarySearchTreeTestingSuite, Tests_BinarySearchTreeTestingSuite );
+CxxTest::StaticSuiteDescription suiteDescription_BinarySearchTreeTestingSuite( "test.h", 17, "BinarySearchTreeTestingSuite", suite_BinarySearchTreeTestingSuite, Tests_BinarySearchTreeTestingSuite );
 
 static class TestDescription_suite_BinarySearchTreeTestingSuite_testInsertation : public CxxTest::RealTestDescription {
 public:
- TestDescription_suite_BinarySearchTreeTestingSuite_testInsertation() : CxxTest::RealTestDescription( Tests_BinarySearchTreeTestingSuite, suiteDescription_BinarySearchTreeTestingSuite, 35, "testInsertation" ) {}
+ TestDescription_suite_BinarySearchTreeTestingSuite_testInsertation() : CxxTest::RealTestDescription( Tests_BinarySearchTreeTestingSuite, suiteDescription_BinarySearchTreeTestingSuite, 20, "testInsertation" ) {}
  void runTest() { suite_BinarySearchTreeTestingSuite.testInsertation(); }
 } testDescription_suite_BinarySearchTreeTestingSuite_testInsertation;
+
+static class TestDescription_suite_BinarySearchTreeTestingSuite_testSearching : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_BinarySearchTreeTestingSuite_testSearching() : CxxTest::RealTestDescription( Tests_BinarySearchTreeTestingSuite, suiteDescription_BinarySearchTreeTestingSuite, 33, "testSearching" ) {}
+ void runTest() { suite_BinarySearchTreeTestingSuite.testSearching(); }
+} testDescription_suite_BinarySearchTreeTestingSuite_testSearching;
 
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";
