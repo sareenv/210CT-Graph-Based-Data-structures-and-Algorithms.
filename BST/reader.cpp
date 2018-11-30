@@ -13,6 +13,11 @@ bool openingFile(string name){
 
 /* open the file and call the insertation function. */
 
+/*
+  This file needs the changes.
+*/
+
+
 void readData(bool openStatus, BinarySearchTree b1){
   if(openStatus == true){
     string word;
