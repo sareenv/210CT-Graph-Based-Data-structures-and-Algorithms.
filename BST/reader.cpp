@@ -1,5 +1,4 @@
 #include "combine.hpp"
-
 /*
   Trying to open the file.
 */

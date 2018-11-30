@@ -7,9 +7,6 @@
 #include<string>
 using namespace std;
 
-vector<string>readData(bool fileStatus);
-bool fileOpenCheck(string fileName);
-
 struct Node{
 	string data; 
 	Node* left; 
@@ -25,7 +22,7 @@ public:
 	bool searchNode(nodeptr root, string target);
 	void deleteNode(nodeptr root, string data);
 };
-bool openingFile(string name);
-void readData(bool openStatus, BinarySearchTree b1);
+vector<string>reader(bool fileStatus);
+bool openingFile(string fileName);
 
 #endif

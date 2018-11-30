@@ -2,9 +2,15 @@
 
 int main(){
     BinarySearchTree b1;
-    auto result = b1.insert(nullptr, "hi");
-    b1.insert(result, "Hi");
-    b1.insert(result, "Hello");
-    b1.insert(result, "Hello");
+    bool check = openingFile("file");
+    nodeptr root;
+    if(check == true){
+    	vector<string> wordsdata = reader(true);
+    	root = b1.insert(nullptr, wordsdata[0]);
+    	for(int i = 0; i< wordsdata.size(); i++){
+    		b1.insert(root, wordsdata[i]);
+    	}
+    }
+    b1.preorderPrinting(root);
     return 0;
 }
