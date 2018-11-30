@@ -27,6 +27,7 @@ public:
 	bool CheckVisited(int node);
 	int edgeWeight(int src, int des);
 	vector<int> neighbourNodes(int src);
-	vector<int> allNodes();		
+	vector<int> allNodes();
+	int smallest(vector<int>dataSet);		
 };
 #endif
