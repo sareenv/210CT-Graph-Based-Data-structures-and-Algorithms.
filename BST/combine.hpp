@@ -5,7 +5,7 @@
 #include<fstream>
 #include<vector>
 #include<string>
-#include "test.h"
+
 using namespace std;
 
 struct Node{
@@ -14,17 +14,14 @@ struct Node{
 	Node* right;
 	int count; 
 };
-
 typedef Node* nodeptr;
 
 class BinarySearchTree{
 public:
-	
 	nodeptr insert(nodeptr root, string data);
 	void preorderPrinting(nodeptr root);
 	bool searchNode(nodeptr root, string target);
-	void deleteNode(nodeptr root, string nodedata);
-	
+	void deleteNode(nodeptr root, string data);
 };
 bool openingFile(string name);
 void readData(bool openStatus, BinarySearchTree b1);

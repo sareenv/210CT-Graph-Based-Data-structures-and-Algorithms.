@@ -1,18 +1,16 @@
     
     /*
-        Printing the element in the pre order...
+        Preorder Printing
             1. Print the root node then print the left node to it and so .. on
             till the time it doesnot reach the leaf node. 
 
             2. Then printing the right side if the node of upper layer of node using 
             the recursive calls and and again repeat the step of the resursion. 
 
-        Important point is Creat the base case for the function. 
+        Important point is Create the base case for the function. 
             - when the node is the null pointer,
         - Make recursive calls to make the printing of the left sub elements of the list till the time it hit the base case.
         - Make recursive calls to make the printing of the left sub elements of the list.
-
-
     */
 
 
