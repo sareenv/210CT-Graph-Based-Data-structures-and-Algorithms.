@@ -36,6 +36,4 @@ class BinarySearchTreeTestingSuite: public CxxTest::TestSuite{
   	TS_SKIP("This test has been");
   }
 };
-
-
 #endif

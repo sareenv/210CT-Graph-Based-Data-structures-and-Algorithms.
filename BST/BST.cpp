@@ -1,6 +1,9 @@
 #include "combine.hpp"
 /*
     Reference :- Lecture Slides (Coventry University). 
+    Title: Binary Search Tree
+    Author: Hintea, D.
+    Availability: http://moodle.coventry.ac.uk
 */
 
 nodeptr BinarySearchTree::insert(nodeptr root, string data){
