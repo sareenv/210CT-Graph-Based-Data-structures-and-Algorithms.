@@ -10,8 +10,7 @@ using namespace std;
 class WeightedDirectedGraph
 {
 private:
-	/*
-		List 
+	/* 
 		source : [(destination, weight), (destination, weight)]
 		map<int, vector(tuple(int, int))>
 	*/
@@ -27,6 +26,6 @@ public:
 	void shortestPath(int source);
 	bool CheckVisited(int node);
 	int edgeWeight(int src, int des);
-	vector<int> neighbourNodes(int src);
+	vector<int> neighbourNodes(int src);		
 };
 #endif

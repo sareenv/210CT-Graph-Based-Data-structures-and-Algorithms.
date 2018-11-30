@@ -12,7 +12,6 @@ void WeightedDirectedGraph::addVeritces(int data){
 }
 
 // Adds the edge of the algorithms.
-
 void WeightedDirectedGraph::addEdges(int source, vector<tuple<int, int>> links){
 	int keyNode = source;
 	pair<int, vector<tuple<int, int>>> linksPair = make_pair(source, links);
@@ -66,11 +65,19 @@ vector<int> WeightedDirectedGraph::neighbourNodes(int source){
 	return {};
 }
 
-// Here comes the algorithm - Disktr'a Algorithm. - Last
+
+/*Disktr'a Algorithm. 
+	Int_MAX - returns +2147483647 - Referance - https://www.geeksforgeeks.org/int_max-int_min-cc-applications/.
+	Reading Referances 
+		- https://brilliant.org/wiki/dijkstras-short-path-finder/
+		- http://www.gitta.info/Accessibiliti/en/html/Dijkstra_learningObject1.html
+*/	
+
+
 void WeightedDirectedGraph::shortestPath(int source){
 	cout<<"Entered the Disktr'a Algorithm. "<<endl;
 	vector<int> unvisited = this->vertices;
-	// Step 1 :- Set the source as zero and others as INT_Max 
+	// Setting the path distance of 0 to source and INT_MAX to others (Considering INT_MAX as infinity).
 	for(int i = 0; i< this->vertices.size(); i++){
 		if(this->vertices[i] == source){
 			// Source vertix and mark this vertix as the visited.
@@ -78,20 +85,28 @@ void WeightedDirectedGraph::shortestPath(int source){
 			this->shortestDistanceMap.insert(sourceShortestPathPair);
 			this->visitedNode.push_back(this->vertices[i]);  
 		}else{
-			// Int_MAX - Referance - https://www.geeksforgeeks.org/int_max-int_min-cc-applications/ - returns +2147483647.
-			// other vitex set it it infinity. In c++ we have INT_MAX
-			pair<int, int> otherShortestPathPair = make_pair(this->vertices[i], 0);
+			pair<int, int> otherShortestPathPair = make_pair(this->vertices[i], INT_MAX);
 			this->shortestDistanceMap.insert(otherShortestPathPair);
 		}
-	}	
-	vector<int> neighbours = neighbourNodes(source);
-	for(int i = 0; i<neighbours.size(); i++){
-		if(WeightedDirectedGraph::CheckVisited(neighbourNodes[i]) == true){
-			// do nothing 
-		}else{
-			cout<<"Doing stuff here "<<endl;
+	}
+	
+	while(true){
+		source = unvisited[0];
+		vector<int> neighbours = neighbourNodes(source);
+		auto shortestDistanceLink = this->shortestDistanceMap.find(source);
+		int sourceShortestDistance = shortestDistanceLink->second;
+		for(int i = 0; i< neighbours.size(); i++){
+			auto shortestDistanceNeighbour = this->shortestDistanceMap.find(neighbours[i]);
+			int neighbourDistance = shortestDistanceNeighbour->second;
+			// IF the source shortest distance and edge is less tahn the neighbour then update neighbour.
+			int pathValue = sourceShortestDistance + WeightedDirectedGraph::edgeWeight(source, neighbours[i]);
+			if(neighbourDistance > pathValue){
+				this->shortestDistanceMap[shortestDistanceNeighbour->first] = pathValue;
+			}
 		}
-	}	
+		break;
+	}
+	
 
 	
 	return;
@@ -105,6 +120,6 @@ int main(){
 	w1.addEdges(13, {make_tuple(13, 6), make_tuple(14, 10)});
 	w1.addEdges(14, {make_tuple(13, 7), make_tuple(14, 10)});
 	w1.addEdges(15, {make_tuple(13, 8), make_tuple(14, 10)});
-	w1.neighbourNodes(13);
+	w1.shortestPath(12);
 	return 0;
 }
