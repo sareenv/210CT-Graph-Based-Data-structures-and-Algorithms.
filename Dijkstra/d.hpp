@@ -4,9 +4,9 @@
 #include<string>
 #include<map>                                                                                            
 #include<vector>
+#include<queue>
 #include<tuple>
 using namespace std;
-
 class WeightedDirectedGraph
 {
 private:
@@ -26,6 +26,7 @@ public:
 	void shortestPath(int source);
 	bool CheckVisited(int node);
 	int edgeWeight(int src, int des);
-	vector<int> neighbourNodes(int src);		
+	vector<int> neighbourNodes(int src);
+	vector<int> allNodes();		
 };
 #endif
