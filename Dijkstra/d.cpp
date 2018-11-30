@@ -74,6 +74,7 @@ vector<int> WeightedDirectedGraph::allNodes(){
 		int node = i->first;
 		nodeAll.push_back(node);
 	}
+	return nodeAll;
 }
 
 // Utility function to return the smallest value in vector
@@ -104,16 +105,18 @@ void WeightedDirectedGraph::shortestPath(int source){
 	// Setting the path distance of 0 to source and INT_MAX to others (Considering INT_MAX as infinity).
 	for(int i = 0; i< this->vertices.size(); i++){
 		if(this->vertices[i] == source){
+			
 			// Source vertix and mark this vertix as the visited.
 			pair<int, int> sourceShortestPathPair = make_pair(this->vertices[i], 0);
 			this->shortestDistanceMap.insert(sourceShortestPathPair);
 			this->visitedNode.push_back(this->vertices[i]);  
 		}else{
+			
 			pair<int, int> otherShortestPathPair = make_pair(this->vertices[i], INT_MAX);
 			this->shortestDistanceMap.insert(otherShortestPathPair);
 		}
 	}
-
+	
 
 	// At first all the nodes are unvisited.
 
@@ -141,6 +144,7 @@ void WeightedDirectedGraph::shortestPath(int source){
 			}
 		}
 	}
+	cout<<"shortest distance is "<< this->shortestDistanceMap[source]<<endl;
 	return;
 }
 
@@ -151,9 +155,8 @@ int main(){
 	w1.addVeritces(13);
 	w1.addVeritces(14);
 	w1.addEdges(12, {make_tuple(13, 2), make_tuple(14, 10)});
-	w1.addEdges(13, {make_tuple(13, 6), make_tuple(14, 10)});
-	w1.addEdges(14, {make_tuple(13, 7), make_tuple(14, 10)});
-	w1.addEdges(15, {make_tuple(13, 8), make_tuple(14, 10)});
+	w1.addEdges(13, {make_tuple(14, 6)});
+	// w1.addEdges(14, {make_tuple(13, 7), make_tuple(14, 10)});
 	w1.shortestPath(12);
 
 	
