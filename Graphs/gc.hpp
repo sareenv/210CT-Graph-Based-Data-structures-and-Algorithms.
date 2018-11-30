@@ -36,7 +36,7 @@ public:
 	void pathBfsWrite(int src);
 	vector<int> isPath(int src, int desti);
 	void printingIsPath(int src, int desti);
-
+	void isPathTextFile(int src, int desti);
 };
 
 #endif

@@ -156,6 +156,16 @@ void Graph::printingIsPath(int src, int desti){
 	}
 }
 
+void Graph::isPathTextFile(int src, int desti){
+	fstream file;
+	file.open("ispath.txt");
+	vector<int> pathVector = isPath(src, desti);
+	for(int i = 0; i< pathVector.size(); i++){
+		file << pathVector[i]<<endl;
+
+	}
+}
+
 /*
 	Implementation of DFS. - Recursive Approach - Supports backtracking.
 	1. Iterate throught the sequance of links for each vertices 

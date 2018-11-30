@@ -144,7 +144,6 @@ void WeightedDirectedGraph::shortestPath(int source){
 			}
 		}
 	}
-	cout<<"shortest distance is "<< this->shortestDistanceMap[source]<<endl;
 	return;
 }
 
