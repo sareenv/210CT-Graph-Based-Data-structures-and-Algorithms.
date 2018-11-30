@@ -137,7 +137,7 @@ void WeightedDirectedGraph::shortestPath(int source){
 		for(int i = 0; i< neighbours.size(); i++){
 			auto shortestDistanceNeighbour = this->shortestDistanceMap.find(neighbours[i]);
 			int neighbourDistance = shortestDistanceNeighbour->second;
-			// IF the source shortest distance and edge is less tahn the neighbour then update neighbour.
+			// IF the source shortest distance and edge is less than the neighbour then update neighbour.
 			int pathValue = sourceShortestDistance + WeightedDirectedGraph::edgeWeight(source, neighbours[i]);
 			if(neighbourDistance > pathValue){
 				this->shortestDistanceMap[shortestDistanceNeighbour->first] = pathValue;
@@ -145,19 +145,4 @@ void WeightedDirectedGraph::shortestPath(int source){
 		}
 	}
 	return;
-}
-
-
-int main(){
-	WeightedDirectedGraph w1;
-	w1.addVeritces(12);
-	w1.addVeritces(13);
-	w1.addVeritces(14);
-	w1.addEdges(12, {make_tuple(13, 2), make_tuple(14, 10)});
-	w1.addEdges(13, {make_tuple(14, 6)});
-	// w1.addEdges(14, {make_tuple(13, 7), make_tuple(14, 10)});
-	w1.shortestPath(12);
-
-	
-	return 0;
 }
