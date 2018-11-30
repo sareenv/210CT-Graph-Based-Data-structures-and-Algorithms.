@@ -1,6 +1,6 @@
 #include "gc.hpp"
 
-// **** isPath ***** - Function
+
 
 /*
 	Constructor method - 
@@ -131,9 +131,29 @@ bool Graph::checkVisited(int node){
 	return false;
 }
 
-void isPath(int src, int desti){
-	// Printing the path
-	return;
+/*
+	Checks the path between two nodes and return it.
+*/
+
+vector<int> Graph::isPath(int src, int desti){
+	vector<int> path;
+	vector<int> dfsPath = Graph::dfs(src);
+	for(int i = 0; i< dfsPath.size(); i++){
+		path.push_back(dfsPath[i]);
+		if(dfsPath[i] == desti){
+			cout<<"Path found "<<endl;
+			return path;
+		}
+	}
+	return path;
+}
+
+void Graph::printingIsPath(int src, int desti){
+	vector<int> path = Graph::isPath(src, desti);
+	cout<<"Printing the path "<<endl;
+	for(int i = 0; i< path.size(); i++){
+		cout<<path[i]<<endl;
+	}
 }
 
 /*
@@ -159,7 +179,6 @@ vector<int> Graph::dfs(int source){
 		if(checkVisited(neighbourElements[i])){
 			// do nothing
 		}else{
-			cout<< neighbourElements[i]<<endl;
 			Graph::dfs(neighbourElements[i]);
 		}
 	}

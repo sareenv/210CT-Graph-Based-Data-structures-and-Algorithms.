@@ -34,7 +34,8 @@ public:
 	vector<int> bfs(int src); 
 	void pathDfsWrite(int src);
 	void pathBfsWrite(int src);
-	void isPath(int src, int desti);
+	vector<int> isPath(int src, int desti);
+	void printingIsPath(int src, int desti);
 
 };
 

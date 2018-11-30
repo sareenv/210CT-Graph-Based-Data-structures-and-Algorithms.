@@ -17,8 +17,10 @@ int main(){
 	g1.addEdge(15, {6, 18});
 
 	
-	g1.isConnected(13);
-	g1.pathDfsWrite(13);
-	g1.pathBfsWrite(13);
+	// g1.isConnected(13);
+	// g1.pathDfsWrite(13);
+	// g1.pathBfsWrite(13);
+	g1.printingIsPath(13, 18);
+
 	return 0;
 }
